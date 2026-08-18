@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asesmen Gaya Belajar Siswa - NaFaS BK</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 12pt; }
+      .print-border { border: 1px solid #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+  
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs no-print">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="showView('home')">
+        <div class="w-10 h-10 rounded-xl bg-indigo-700 text-white flex items-center justify-center font-black text-lg shadow-md">
+          N
+        </div>
+        <div>
+          <div class="font-extrabold text-base sm:text-lg text-slate-900 leading-tight">
+            NaFaS <span class="text-indigo-600">BK</span>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium">Asesmen Digital Bimbingan dan Konseling</p>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-2">
+        <button onclick="showView('home')" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-700 hover:bg-slate-100">Beranda</button>
+        <button onclick="showView('guide')" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-700 hover:bg-slate-100">Petunjuk</button>
+        <button onclick="showView('teacher')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-slate-900 text-white hover:bg-slate-800 shadow-xs">Mode Guru BK</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-6 sm:py-8">
+
+    <!-- VIEW 1: HOME -->
+    <section id="view-home" class="space-y-10">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-indigo-800 to-slate-900 text-white p-8 sm:p-14 text-center space-y-6 shadow-xl">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-semibold text-amber-300">
+          Katalog Digital NaFaS BK • Layanan BK SMP, SMA & SMK
+        </div>
+        <div class="space-y-2">
+          <h1 class="text-3xl sm:text-5xl font-black tracking-tight">ASESMEN GAYA BELAJAR SISWA</h1>
+          <p class="text-xl sm:text-2xl font-bold text-amber-300">“Kenali Cara Belajarmu, Temukan Strategi Belajarmu”</p>
+        </div>
+        <p class="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto leading-relaxed">
+          Asesmen ini membantu kamu mengenali kecenderungan cara belajar berdasarkan pengalaman dan kebiasaan belajarmu.
+        </p>
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button onclick="showView('identity')" class="w-full sm:w-auto px-8 py-4 bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-base rounded-2xl shadow-lg hover:scale-105 transition-all">
+            MULAI ASESMEN
+          </button>
+          <button onclick="showView('guide')" class="w-full sm:w-auto px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm rounded-2xl backdrop-blur-sm border border-white/20">
+            PETUNJUK
+          </button>
+        </div>
+        <div class="text-xs text-indigo-200 font-medium pt-2">
+          Waktu pengerjaan ±10–15 menit • 30 Butir Asesmen
+        </div>
+      </div>
+
+      <!-- 3 Modalities Summary -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
+          <div class="text-blue-600 font-black text-sm uppercase">Visual (Melihat)</div>
+          <p class="text-xs text-slate-600 leading-relaxed">Cenderung lebih terbantu dengan diagram, peta pikiran, warna, tulisan rapi, infografis, dan video visual.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
+          <div class="text-emerald-600 font-black text-sm uppercase">Auditori (Mendengar)</div>
+          <p class="text-xs text-slate-600 leading-relaxed">Cenderung optimal lewat penjelasan lisan guru, diskusi aktif, membaca bersuara, dan pertukaran gagasan.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
+          <div class="text-amber-600 font-black text-sm uppercase">Kinestetik (Praktik & Gerak)</div>
+          <p class="text-xs text-slate-600 leading-relaxed">Cenderung lebih cepat paham melalui eksperimen langsung, demonstrasi peraga, simulasi karya, dan aktivitas fisik.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: GUIDE -->
+    <section id="view-guide" class="hidden max-w-3xl mx-auto space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-6">
+        <div class="border-b border-slate-100 pb-4">
+          <h2 class="text-2xl font-extrabold text-slate-900">Petunjuk Pengisian Asesmen</h2>
+          <p class="text-xs text-slate-500 mt-1">Harap perhatikan petunjuk sederhana berikut sebelum memulai:</p>
+        </div>
+        <ul class="space-y-3 text-xs sm:text-sm text-slate-700 list-disc list-inside">
+          <li>Bacalah setiap pernyataan dengan teliti.</li>
+          <li>Jawablah sesuai kebiasaanmu yang sebenarnya.</li>
+          <li>Tidak ada jawaban benar atau salah.</li>
+          <li>Jangan memilih jawaban berdasarkan apa yang menurutmu paling baik.</li>
+          <li>Jawablah dengan jujur.</li>
+          <li>Semua pertanyaan (30 butir) harus dijawab.</li>
+        </ul>
+        <div class="p-4 rounded-2xl bg-indigo-50 border border-indigo-100 space-y-2">
+          <div class="font-bold text-xs text-indigo-900">Skala Jawaban:</div>
+          <div class="grid grid-cols-1 sm:grid-cols-5 gap-2 text-xs text-center font-bold">
+            <div class="p-2 rounded-lg bg-white border border-slate-200">1 = Sangat Tidak Sesuai</div>
+            <div class="p-2 rounded-lg bg-white border border-slate-200">2 = Tidak Sesuai</div>
+            <div class="p-2 rounded-lg bg-white border border-slate-200">3 = Cukup Sesuai</div>
+            <div class="p-2 rounded-lg bg-white border border-slate-200">4 = Sesuai</div>
+            <div class="p-2 rounded-lg bg-white border border-slate-200">5 = Sangat Sesuai</div>
+          </div>
+        </div>
+        <div class="flex justify-end gap-3 pt-2">
+          <button onclick="showView('home')" class="px-5 py-2.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-700">Kembali</button>
+          <button onclick="showView('identity')" class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white text-xs font-bold shadow-md hover:bg-indigo-700">Lanjutkan</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: IDENTITY -->
+    <section id="view-identity" class="hidden max-w-xl mx-auto space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-5">
+        <h2 class="text-2xl font-extrabold text-slate-900">Identitas Siswa</h2>
+        <form id="identity-form" onsubmit="startAssessment(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-800 mb-1">Nama Lengkap *</label>
+            <input type="text" id="input-name" required placeholder="Contoh: Budi Pratama" class="w-full p-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-800 mb-1">Kelas / Rombel *</label>
+            <input type="text" id="input-class" required placeholder="Contoh: VIII A / X RPL 1 / XI MIPA 2" class="w-full p-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-800 mb-1">Jenjang Pendidikan *</label>
+            <select id="input-level" class="w-full p-3 rounded-xl border border-slate-300 text-sm font-semibold bg-slate-50 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+              <option value="SMP">SMP</option>
+              <option value="SMA" selected>SMA</option>
+              <option value="SMK">SMK</option>
+            </select>
+          </div>
+          <div class="flex justify-end gap-3 pt-4">
+            <button type="button" onclick="showView('home')" class="px-5 py-2.5 rounded-xl border border-slate-300 text-xs font-bold">Batal</button>
+            <button type="submit" class="px-7 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md">LANJUTKAN</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- VIEW 4: ASSESSMENT -->
+    <section id="view-assessment" class="hidden max-w-2xl mx-auto space-y-6">
+      <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs space-y-2">
+        <div class="flex items-center justify-between text-xs font-bold">
+          <span id="student-badge-top" class="text-indigo-700">Siswa</span>
+          <span id="question-counter-text" class="text-slate-500">Pertanyaan 1 dari 30</span>
+        </div>
+        <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+          <div id="progress-bar-fill" class="bg-indigo-600 h-full rounded-full transition-all duration-300" style="width: 3.3%"></div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-md space-y-6 min-h-[320px] flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-xs" id="question-number-badge">
+            Butir #1
+          </div>
+          <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+            Teks pertanyaan...
+          </h3>
+        </div>
+
+        <div class="space-y-2" id="options-container">
+          <!-- Options rendered via JS -->
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button id="btn-prev-q" onclick="prevQuestion()" class="px-5 py-2.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-700">SEBELUMNYA</button>
+        <button id="btn-next-q" onclick="nextQuestion()" class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white text-xs font-bold shadow-md">LANJUT</button>
+      </div>
+    </section>
+
+    <!-- VIEW 5: RESULT & REPORT -->
+    <section id="view-result" class="hidden max-w-4xl mx-auto space-y-8">
+      <!-- Result content populated dynamically -->
+      <div id="result-container"></div>
+    </section>
+
+    <!-- VIEW 6: TEACHER DASHBOARD -->
+    <section id="view-teacher" class="hidden space-y-6">
+      <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs space-y-4">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div>
+            <h2 class="text-xl font-black text-slate-900">REKAP HASIL ASESMEN GURU BK</h2>
+            <p class="text-xs text-slate-500">Rekapitulasi preferensi gaya belajar siswa yang tersimpan di browser ini.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="exportCSV()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-xs">Export CSV</button>
+            <button onclick="window.print()" class="px-3.5 py-2 border border-slate-300 text-slate-700 font-bold text-xs rounded-xl">Cetak Rekap</button>
+          </div>
+        </div>
+
+        <!-- Stats row -->
+        <div id="teacher-stats-row" class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center"></div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                <th class="py-2.5 px-3">No</th>
+                <th class="py-2.5 px-3">Nama</th>
+                <th class="py-2.5 px-3">Kelas</th>
+                <th class="py-2.5 px-3">Jenjang</th>
+                <th class="py-2.5 px-3 text-center">Visual</th>
+                <th class="py-2.5 px-3 text-center">Auditori</th>
+                <th class="py-2.5 px-3 text-center">Kinestetik</th>
+                <th class="py-2.5 px-3">Kecenderungan Utama</th>
+              </tr>
+            </thead>
+            <tbody id="teacher-table-body" class="divide-y divide-slate-200"></tbody>
+          </table>
+        </div>
+
+        <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs text-slate-500">
+          <span>Data tersimpan di penyimpanan browser lokal.</span>
+          <button onclick="clearAllData()" class="text-rose-600 font-bold hover:underline">Hapus Semua Data</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mt-auto border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 no-print">
+    <div class="max-w-5xl mx-auto px-4 space-y-1">
+      <div class="font-bold text-slate-800">NaFaS BK — Asesmen Digital Bimbingan dan Konseling</div>
+      <div>Katalog Digital Layanan Bimbingan & Konseling • Bukan Pengganti Tes Psikologi Klinis</div>
+    </div>
+  </footer>
+
+  <script>
+    const QUESTIONS = [{"id":1,"domain":"visual","text":"Saya lebih cepat memahami konsep baru jika materi disajikan dalam bentuk diagram, grafik, atau bagan alur."},{"id":2,"domain":"auditori","text":"Saya lebih mudah mengingat pelajaran ketika guru menerangkannya secara lisan dan interaktif di depan kelas."},{"id":3,"domain":"kinestetik","text":"Saya merasa lebih cepat mengerti jika langsung mencoba mempraktikkan materi atau mengerjakan tugas karya fisik."},{"id":4,"domain":"visual","text":"Saya terbiasa menandai buku catatan dengan spidol warna-warni (stabilo) agar susunan informasi terlihat rapi dan jelas."},{"id":5,"domain":"auditori","text":"Saya suka mendiskusikan materi pelajaran bersama teman atau mengulang penjelasan materi dengan berbicara sendiri."},{"id":6,"domain":"kinestetik","text":"Ketika belajar dalam durasi yang cukup lama, saya merasa lebih nyaman jika sesekali bergerak atau mengubah posisi duduk."},{"id":7,"domain":"visual","text":"Ketika mengingat kembali suatu informasi, saya sering membayangkan letak teks, warna, atau gambar di dalam halaman buku."},{"id":8,"domain":"auditori","text":"Penjelasan materi melalui rekaman audio, siaran siniar (podcast), atau penjelasan video lisan sangat membantu pemahaman saya."},{"id":9,"domain":"kinestetik","text":"Saya lebih bersemangat belajar saat ada kegiatan praktikum, simulasi, permainan peran (role play), atau eksperimen langsung."},{"id":10,"domain":"visual","text":"Saya lebih menyukai petunjuk tugas yang tertulis secara runut dan terstruktur daripada hanya sekadar diucapkan secara lisan."},{"id":11,"domain":"auditori","text":"Saya mudah terganggu oleh suara bising, percakapan di sekitar, atau musik saat berusaha fokus memahami materi yang sulit."},{"id":12,"domain":"kinestetik","text":"Saat sedang berpikir atau menghafal sesuatu, saya sering mengetuk-ngetukkan jari, memutar pena, atau berjalan santai."},{"id":13,"domain":"visual","text":"Saya merasa sangat terbantu saat guru menuliskan poin-poin kunci, rumus, atau skema ringkas di papan tulis atau slide."},{"id":14,"domain":"auditori","text":"Saya merasa efektif belajar dengan cara membaca teks dengan bersuara atau mendengarkan rekaman teman membaca intisari materi."},{"id":15,"domain":"kinestetik","text":"Saya menyukai tugas proyek yang melibatkan kegiatan merancang, merakit benda, menyusun poster fisik, atau membuat prototipe."},{"id":16,"domain":"visual","text":"Saya lebih cepat menangkap gambaran besar topik yang rumit melalui peta pikiran (mind mapping), infografis, atau tabel perbandingan."},{"id":17,"domain":"auditori","text":"Saya dapat mengingat cerita, dialog tanya-jawab di kelas, atau contoh kasus yang diucapkan guru dengan sangat detail."},{"id":18,"domain":"kinestetik","text":"Saya lebih mudah memahami cara kerja suatu alat atau konsep dengan memegang, membongkar-pasang, atau mengoperasikannya sendiri."},{"id":19,"domain":"visual","text":"Tampilan buku teks, modul belajar, atau slide presentasi yang rapi, bersih, dan berilustrasi membuat motivasi belajar saya meningkat."},{"id":20,"domain":"auditori","text":"Mengulang materi dengan cara menerangkan kembali kepada teman atau diri sendiri membuat pemahaman saya semakin mantap."},{"id":21,"domain":"kinestetik","text":"Saya merasa cepat lelah atau mengantuk jika hanya diminta duduk diam mendengarkan ceramah materi dalam waktu lama tanpa aktivitas fisik."},{"id":22,"domain":"visual","text":"Saya senang merancang catatan rangkuman sendiri dengan simbol, panah penghubung, tata letak visual, dan pengelompokan kotak."},{"id":23,"domain":"auditori","text":"Penekanan nada bicara, irama, dan intonasi suara pembicara sangat membantu saya menangkap poin penting yang sedang dibahas."},{"id":24,"domain":"kinestetik","text":"Mengaitkan materi pelajaran abstrak dengan contoh kegiatan sehari-hari atau pengalaman gerak fisik membuat saya jauh lebih mudah ingat."},{"id":25,"domain":"visual","text":"Saat belajar langkah-langkah baru atau panduan teknis, saya lebih memilih melihat gambar ilustrasi alur daripada membaca paragraf teks panjang."},{"id":26,"domain":"auditori","text":"Saya mudah mengingat rumus atau istilah asing menggunakan rima berirama, jembatan keledai bunyi, atau lirik lagu sederhana."},{"id":27,"domain":"kinestetik","text":"Saya lebih nyaman belajar sambil melakukan aktivitas pendukung ringan seperti menggunakan kartu kilas (flashcards) fisik atau alat peraga."},{"id":28,"domain":"visual","text":"Saya memiliki ketelitian tinggi dalam mengenali kekeliruan tulisan (typo), ketidakrapian format, atau ketidaksesuaian tata letak dokumen."},{"id":29,"domain":"auditori","text":"Saat mengerjakan soal ujian yang cukup rumit, saya terbantu dengan membaca soal secara berbisik atau menggumamkannya dalam hati secara verbal."},{"id":30,"domain":"kinestetik","text":"Pengalaman belajar di luar kelas seperti kunjungan lapangan, studi kasus nyata, atau demonstrasi langsung jauh lebih membekas dalam ingatan saya."}];
+    const RESPONSE_OPTIONS = [{"value":1,"label":"Sangat Tidak Sesuai","shortLabel":"STS","desc":"Sama sekali tidak menggambarkan kebiasaan belajarku"},{"value":2,"label":"Tidak Sesuai","shortLabel":"TS","desc":"Jarang atau kurang sesuai dengan kebiasaan belajarku"},{"value":3,"label":"Cukup Sesuai","shortLabel":"CS","desc":"Kadang-kadang sesuai dalam situasi belajar tertentu"},{"value":4,"label":"Sesuai","shortLabel":"S","desc":"Sering sesuai dan cocok dengan caraku belajar"},{"value":5,"label":"Sangat Sesuai","shortLabel":"SS","desc":"Sangat cocok dan menjadi kebiasaan utama belajarku"}];
+    const INTERPRETATIONS = {"visual_dominant":{"category":"visual_dominant","title":"Kecenderungan Belajar Visual","subtitle":"Kamu lebih optimal mengolah informasi melalui indra penglihatan, struktur grafis, dan representasi visual.","summary":"Siswa dengan kecenderungan visual memiliki kepekaan tinggi terhadap tata letak, warna, bentuk, serta susunan informasi tertulis. Kamu cenderung lebih cepat memahami konsep ketika materi disajikan dalam format yang dapat dilihat secara jelas, seperti diagram alir, peta pikiran (mind map), kode warna, dan ilustrasi terstruktur. Penting diingat bahwa kamu tetap memiliki kemampuan auditori dan kinestetik yang dapat terus dikombinasikan sesuai jenis materi pelajaran.","characteristics":["Menyukai catatan yang rapi, tertata, dan dilengkapi dengan stabilo atau penanda warna.","Mengingat informasi dengan membayangkan kembali letak halaman atau bentuk gambar dalam ingatan visual.","Lebih mudah fokus jika lingkungan belajar bersih, teratur, dan minim gangguan visual yang berantakan.","Sangat terbantu oleh diagram, infografis, video edukasi animasi, dan skema penjelasan."],"strengths":["Daya ingat visual yang kuat terhadap gambar, tata letak, pola, dan struktur dokumen.","Kerapian tinggi dalam menyusun dokumen catatan, ringkasan, dan presentasi tugas.","Cepat menangkap peta konsep besar dan keterkaitan antartopik melalui representasi grafis."],"growthAreas":["Melatih konsentrasi mendengarkan saat instruksi hanya disampaikan secara lisan tanpa bahan tayang.","Membiasakan diri membuat coretan visual ringkas ketika menghadiri ceramah atau diskusi kelas.","Berlatih aktif menyampaikan gagasan secara lisan dan berdiskusi agar kemampuan komunikasi semakin seimbang."],"recommendations":[{"title":"Membuat Catatan & Skema Visual","description":"Gunakan metode Cornell Notes atau Mind Mapping dengan kode warna khusus untuk membedakan rumus, definisi, dan contoh soal.","icon":"FileText"},{"title":"Teknik Membaca & Menandai Materi","description":"Gunakan spidol stabilo maksimal 3 warna berbeda (misal: kuning untuk kata kunci, hijau untuk rumus/istilah, oranye untuk contoh penting).","icon":"BookOpen"},{"title":"Strategi Menghafal Efektif","description":"Gunakan flashcards bergambar atau buat diagram alur sederhana untuk menghafal tahapan proses dan urutan peristiwa sejarah.","icon":"Brain"},{"title":"Persiapan Menjelang Ujian","description":"Buatlah \"Cheat Sheet\" atau Lembar Intisari satu halaman yang berisi ringkasan visual seluruh rumus atau konsep inti satu bab.","icon":"Target"},{"title":"Menghadapi Materi yang Sulit","description":"Cari animasi edukatif di YouTube atau konversikan teks naratif yang rumit menjadi tabel perbandingan atau bagan sebab-akibat.","icon":"HelpCircle"},{"title":"Pemanfaatan Teknologi Belajar","description":"Manfaatkan aplikasi seperti Canva, Miro, Notion, atau Notion mind-map untuk menyusun tugas digital yang kaya visual.","icon":"Laptop"},{"title":"Belajar Bersama Rekan/Kelompok","description":"Ambil peran membuat rangkuman visual, slide presentasi kelompok, atau papan tulis virtual saat belajar bersama teman.","icon":"Users"}]},"auditori_dominant":{"category":"auditori_dominant","title":"Kecenderungan Belajar Auditori","subtitle":"Kamu lebih optimal memproses informasi melalui pendengaran, dialog verbal, dan pertukaran suara.","summary":"Siswa dengan kecenderungan auditori menyerap informasi dengan sangat baik melalui penjelasan lisan, diskusi, tanya jawab, serta pengulangan kata-kata. Kamu cenderung mengingat apa yang diucapkan guru, intonasi suara, maupun ritme kalimat. Kamu tetap dapat melengkapi kebiasaan belajarmu dengan membuat catatan visual dan aktivitas praktik nyata agar pemahaman semakin mendalam.","characteristics":["Sangat menikmati penjelasan langsung dari guru dan aktif bertanya dalam sesi diskusi kelas.","Suka membaca materi dengan suara terdengar (reading aloud) atau bergumam lirih saat memahami teks sulit.","Mudah mengingat jingle, rima kata, jembatan keledai berirama, dan lelucon verbal guru.","Cenderung mudah terganggu oleh suara bising yang tidak teratur saat belajar materi yang membutuhkan konsentrasi tinggi."],"strengths":["Kemampuan menyerap penjelasan lisan dengan cepat tanpa harus selalu melihat teks panjang.","Keterampilan komunikasi verbal yang baik, artikulatif dalam diskusi, dan percaya diri saat presentasi.","Daya ingat auditori yang tajam terhadap analogi verbal, cerita, dan dialog guru."],"growthAreas":["Melatih kesabaran saat harus membaca modul teks tebal yang minim ilustrasi atau suara.","Membiasakan diri menuliskan poin-poin penting agar informasi lisan tidak mudah terlewat seiring waktu.","Mengatur lingkungan belajar yang hening atau menggunakan instrumen lo-fi untuk meredam kebisingan luar."],"recommendations":[{"title":"Membuat Catatan & Rekaman Audio","description":"Rekam poin-poin penting yang kamu jelaskan dengan suaramu sendiri di ponsel, lalu dengarkan kembali saat perjalanan atau santai.","icon":"FileText"},{"title":"Teknik Membaca Aktif","description":"Gunakan teknik membaca dengan suara berbisik teratur (whisper reading) atau ubah paragraf teks menjadi cerita lisan berirama.","icon":"BookOpen"},{"title":"Strategi Menghafal dengan Bunyi","description":"Buat akronim atau jembatan keledai yang berima (rhyming mnemonics) untuk mengingat deretan rumus, urutan, atau tabel periodik.","icon":"Brain"},{"title":"Persiapan Menjelang Ujian","description":"Gunakan teknik \"Feynman\": jelaskan materi bab ujian kepada teman atau boneka/cermin tanpa melihat teks untuk menguji pemahaman.","icon":"Target"},{"title":"Menghadapi Materi yang Sulit","description":"Dengarkan siniar edukasi (podcast), rekaman webinar, atau ajak teman yang menguasai materi untuk sesi tanya-jawab verbal.","icon":"HelpCircle"},{"title":"Pemanfaatan Teknologi Belajar","description":"Gunakan fitur Text-to-Speech pada modul digital atau dengarkan audiobook edukasi sambil menyimak garis besar modul.","icon":"Laptop"},{"title":"Belajar Bersama Rekan/Kelompok","description":"Bentuk kelompok belajar kecil (2–3 orang) dengan fokus saling melempar kuis lisan dan mendebatkan pemecahan soal.","icon":"Users"}]},"kinestetik_dominant":{"category":"kinestetik_dominant","title":"Kecenderungan Belajar Kinestetik","subtitle":"Kamu lebih optimal menyerap pengetahuan melalui keterlibatan fisik, praktik langsung, dan eksplorasi nyata.","summary":"Siswa dengan kecenderungan kinestetik belajar paling efektif ketika tubuh dan indra peraba mereka aktif terlibat. Kamu belajar paling baik melalui \"learning by doing\", eksperimen laboratorium, simulasi gerak, pembuatan karya, dan studi lapangan. Duduk diam dalam waktu lama mendengarkan ceramah pasif seringkali membuatmu cepat lelah, sehingga strategi belajar aktif dengan interval gerak sangat membantumu.","characteristics":["Lebih cepat mengerti ketika langsung mencoba mengoperasikan alat, mempraktikkan rumus, atau mengerjakan proyek.","Sering menggunakan gerakan tubuh, mengetuk pena, atau berjalan santai saat menghafal dan berkonsentrasi.","Menyukai suasana belajar yang dinamis, praktikum laboratorium, drama, dan simulasi kasus nyata.","Merasa lebih segar jika menerapkan jeda belajar singkat untuk bergerak (pomodoro interval)."],"strengths":["Ketangkasan motorik yang tinggi dan cepat terampil dalam keterampilan praktik, teknologi kerja, dan olahraga/seni.","Kemampuan mengingat jangka panjang yang kuat terhadap hal-hal yang pernah dipraktikkan langsung.","Keberanian mencoba, berorientasi aksi, dan berjiwa eksploratif dalam menyelesaikan masalah."],"growthAreas":["Meningkatkan daya tahan fokus saat harus membaca materi teoretis dan duduk dalam ujian durasi panjang.","Mengembangkan teknik belajar mandiri yang tidak bergantung sepenuhnya pada instruksi praktikum guru.","Membiasakan diri menyusun ringkasan tertulis sistematis setelah selesai melakukan aktivitas praktik."],"recommendations":[{"title":"Membuat Catatan & Benda Fisik","description":"Gunakan kartu kilas fisik (flashcards) yang bisa dipegang dan dipilah ke kotak \"Sudah Paham\" dan \"Perlu Diulang\".","icon":"FileText"},{"title":"Teknik Membaca Sambil Bergerak","description":"Terapkan membaca sambil berjalan perlahan di kamar atau gunakan standing desk/meja berdiri jika memungkinkan.","icon":"BookOpen"},{"title":"Strategi Menghafal dengan Gerak","description":"Asosiasikan konsep atau rumus penting dengan gerakan tangan, isyarat tubuh tertentu, atau benda fisik di sekitarmu.","icon":"Brain"},{"title":"Persiapan Menjelang Ujian","description":"Kerjakan soal latihan secara nyata dengan simulasi waktu riil; buat proyek mini atau role play untuk menguji konsep materi.","icon":"Target"},{"title":"Menghadapi Materi yang Sulit","description":"Cari alat peraga nyata, bangun model miniatur 3D (dari kertas/kardus), atau buat simulasi interaktif di komputer.","icon":"HelpCircle"},{"title":"Pemanfaatan Teknologi Belajar","description":"Gunakan aplikasi simulasi virtual interaktif (seperti PhET Simulations, GeoGebra, atau lab virtual interaktif).","icon":"Laptop"},{"title":"Pengaturan Waktu & Belajar Kelompok","description":"Gunakan teknik Pomodoro (25 menit belajar intensif + 5 menit peregangan fisik). Ambil peran peraga atau pelaksana eksperimen kelompok.","icon":"Users"}]},"visual_kinestetik":{"category":"visual_kinestetik","title":"Kombinasi Visual - Kinestetik","subtitle":"Kamu lebih optimal ketika materi dapat kamu lihat representasi visualnya sekaligus kamu coba praktikkan langsung.","summary":"Kamu memiliki perpaduan profil yang sangat dinamis antara daya tangkap visual yang tajam dan kebutuhan eksplorasi fisik. Kamu memahami konsep secara utuh ketika melihat alur gambar kemudian langsung mengotak-atik atau menerapkannya sendiri dalam tindakan nyata. Profil ini sangat unggul dalam bidang sains terapan, teknologi, desain, rekayasa, seni rupa, dan vokasi/kejuruan.","characteristics":["Sangat menyukai panduan visual langkah-demi-langkah (step-by-step pictorial guides) yang langsung dapat dipraktikkan.","Suka membuat model fisik, prototipe, atau bagan dinding besar yang bisa ditempeli sticky notes secara fleksibel.","Cepat bosan dengan ceramah lisan panjang yang tidak disertai media visual interaktif atau demonstrasi alat."],"strengths":["Mampu mengonversikan konsep visual abstrak menjadi karya atau solusi nyata yang aplikatif.","Ketelitian visual dipadukan dengan kecekatan tindakan tangan yang cekatan.","Kreativitas tinggi dalam memecahkan masalah melalui visualisasi dan pembuatan model."],"growthAreas":["Melatih daya tangkap saat menghadiri pembelajaran lisan teoretis murni.","Membiasakan diri berdiskusi verbal dengan rekan sejawat agar komunikasi dua arah berjalan optimal.","Mengatur catatan agar tetap rapi setelah banyak dipakai bereksperimen."],"recommendations":[{"title":"Papan Sticky Notes Interaktif","description":"Tempelkan sticky notes berwarna di dinding atau papan tulis kamar, lalu pindahkan posisinya sesuai alur pemikiranmu.","icon":"FileText"},{"title":"Modul Infografis & Praktik Langsung","description":"Lihat diagram/video animasi tutorial berdurasi singkat, lalu segera jeda video untuk mempraktikkan langkah tersebut di kertas/alat.","icon":"BookOpen"},{"title":"Membuat Mind Map Fisik Berskala Besar","description":"Gambar peta pikiran di kertas karton besar di lantai atau meja luas menggunakan spidol warna dan guntingan gambar referensi.","icon":"Brain"},{"title":"Latihan Ujian Berbasis Kasus & Karya","description":"Pecahkan latihan soal ujian dengan menggambar sketsa situasi soal sebelum menghitung atau menjawab.","icon":"Target"},{"title":"Simulasi Perangkat Lunak & Lab Virtual","description":"Gunakan software visual interaktif seperti GeoGebra, simulator sirkuit elektronik, atau platform 3D modeling edukatif.","icon":"Laptop"},{"title":"Belajar dengan Kartu Kilas Visual (Visual Flashcards)","description":"Buat kartu fisik dengan gambar ilustrasi di bagian depan dan penjelasan di bagian belakang, lalu mainkan secara aktif.","icon":"HelpCircle"},{"title":"Kolaborasi Kelompok Terarah","description":"Pegang peran menyusun materi tayang (slide grafis) dan memperagakan demonstrasi karya dalam tim belajarmu.","icon":"Users"}]},"visual_auditori":{"category":"visual_auditori","title":"Kombinasi Visual - Auditori","subtitle":"Kamu lebih optimal ketika materi disajikan secara komprehensif melalui tampilan visual sekaligus penjelasan verbal.","summary":"Kamu memiliki keseimbangan yang kuat antara menyerap informasi melalui mata dan telinga. Pembelajaran berbasis multimedia—seperti video edukasi berpenjelasan naratif, presentasi guru yang komunikatif dengan slide menarik, serta diskusi berpanduan teks—merupakan media belajar yang sangat ideal untukmu. Kamu mampu menangkap ide besar lewat skema sambil mengingat penjelasan lisan yang menyertainya.","characteristics":["Sangat menyukai video pembelajaran dengan grafis informatif dan narator yang berbicara jelas.","Suka membuat catatan warna-warni sambil mendengarkan ceramah guru di kelas.","Mampu menjelaskan kembali diagram visual dengan kata-kata lisan yang runtut dan jelas."],"strengths":["Daya serap tinggi pada metode pembelajaran kelas konvensional maupun digital multimedia.","Kombinasi kemampuan mencatat rapi dan kemampuan berkomunikasi/presentasi yang baik.","Cepat menangkap nuansa materi baik dari ekspresi penyaji maupun dokumen yang ditampilkan."],"growthAreas":["Melatih kesiapan belajar ketika dihadapkan pada tugas praktikum fisik atau eksperimen mandiri yang rumit.","Menghindari kejenuhan ketika harus duduk diam terlalu lama di depan layar laptop/buku.","Menjaga keseimbangan antara mendengarkan dan mencatat agar tidak tertinggal fokus."],"recommendations":[{"title":"Menyimak Video Edukasi Multimedia","description":"Tonton video materi beranimasi dengan subtitle atau narasi jelas; jeda sesekali untuk mencatat ringkasan poin inti.","icon":"Laptop"},{"title":"Membaca Teks Sambil Berbicara Lirih","description":"Saat membaca modul berdiagram, jelaskan arti bagan tersebut dengan suaramu sendiri seolah sedang mengajar.","icon":"BookOpen"},{"title":"Membuat Rangkuman Berwarna & Rekaman Intisari","description":"Tulis ringkasan menggunakan tinta warna berbeda, lalu bacakan rangkuman tersebut ke dalam rekaman suara ponsel.","icon":"FileText"},{"title":"Persiapan Ujian dengan Teman Belajar","description":"Tunjukkan diagram/skema buatanmu kepada rekan belajar, lalu jelaskan alurnya secara lisan untuk mengunci pemahaman.","icon":"Target"},{"title":"Penggunaan Siniar (Podcast) & Infografis","description":"Padukan mendengarkan siniar bertema materi dengan menyimak infografis terkait dari internet atau buku rujukan.","icon":"Brain"},{"title":"Menangani Materi Rumit","description":"Tuliskan definisi materi di papan tulis mini atau kertas, lalu bahas pertanyaan-pertanyaan sulit bersama kelompok diskusi.","icon":"HelpCircle"},{"title":"Diskusi Presentasi Digital","description":"Gunakan slide presentasi interaktif dengan poin-poin singkat dan sampaikan dengan intonasi vokal yang menarik.","icon":"Users"}]},"auditori_kinestetik":{"category":"auditori_kinestetik","title":"Kombinasi Auditori - Kinestetik","subtitle":"Kamu lebih optimal ketika pembelajaran melibatkan interaksi suara/diskusi aktif sambil disertai aktivitas gerak fisik.","summary":"Kamu belajar paling efektif ketika suasana belajar terasa hidup, interaktif, dan penuh energi. Kamu menyerap materi melalui tanya-jawab, perdebatan gagasan, permainan peran (role-playing), praktikum interaktif, dan belajar sambil bergerak. Lingkungan yang terlalu kaku dan hening seringkali membuatmu merasa cepat bosan atau pasif.","characteristics":["Menyukai belajar kelompok yang aktif berdiskusi sambil berjalan-jalan santai atau memperagakan konsep.","Sering menghafal istilah dengan mengucapkannya lantang sambil mondar-mandir atau memainkan alat tulis.","Sangat antusias pada kegiatan debat, drama edukasi, simulasi ruang sidang, atau praktikum tim."],"strengths":["Kecerdasan sosial dan interpersonal yang sangat baik dalam kelompok belajar.","Keterampilan komunikasi verbal yang hidup dan ekspresif dengan gestur tubuh yang mendukung.","Daya tahan belajar tinggi jika berada dalam lingkungan dinamis yang kolaboratif."],"growthAreas":["Meningkatkan konsentrasi saat membaca modul teks tebal yang penuh tabel sunyi tanpa interaksi.","Membiasakan diri membuat catatan tertulis terstruktur untuk mendokumentasikan hasil diskusi lisan.","Menjaga ketenangan agar tidak mengganggu teman di ruang belajar hening/perpustakaan."],"recommendations":[{"title":"Membaca Bersuara Sambil Berjalan","description":"Pegang buku teks dan bacalah intisari pelajaran dengan suara pelan sambil melangkah santai di dalam ruangan.","icon":"BookOpen"},{"title":"Diskusi Sambil Memperagakan Konsep","description":"Ajak teman belajar untuk melakukan permainan tanya-jawab cepat (kuis cepat) sambil saling melempar bola karet ringan.","icon":"Users"},{"title":"Merekam Suara Saat Melakukan Praktik","description":"Saat melakukan eksperimen atau proyek kerja, narasikan setiap langkah kerjamu menggunakan perekam suara.","icon":"FileText"},{"title":"Metode Role-Play & Simulasi Peran","description":"Peragakan peristiwa sejarah, dialog bahasa asing, atau alur transaksi bisnis bersama teman seolah sedang bermain drama nyata.","icon":"Target"},{"title":"Mendengarkan Audio Sambil Melakukan Olahraga Ringan","description":"Dengarkan rekaman materi pelajaran atau siniar edukasi saat melakukan peregangan fisik atau jalan pagi santai.","icon":"Laptop"},{"title":"Menangani Materi Hafalan Sulit","description":"Ciptakan yel-yel, tepukan tangan berirama, atau jembatan keledai vokal untuk menghafal urutan rumus yang kompleks.","icon":"Brain"},{"title":"Teknik Belajar Interval Dinamis","description":"Terapkan 20 menit belajar diskusi/tanya-jawab diselingi 5 menit gerak bebas untuk me-refresh konsentrasi otak.","icon":"HelpCircle"}]},"balanced":{"category":"balanced","title":"Kecenderungan Seimbang (Multimodal)","subtitle":"Kamu memiliki fleksibilitas tinggi dalam menyerap informasi melalui modalitas visual, auditori, maupun kinestetik.","summary":"Profil seimbang (Multimodal) menunjukkan bahwa skor kemampuanmu pada ketiga domain (Visual, Auditori, Kinestetik) berada pada tingkat yang relatif merata. Ini merupakan keunggulan adaptasi yang sangat berharga! Kamu dapat dengan luwes menyesuaikan strategi belajar tergantung pada jenis mata pelajaran, metode yang digunakan guru di kelas, maupun sarana belajar yang tersedia.","characteristics":["Mampu beradaptasi dengan baik di berbagai metode pengajaran guru (ceramah, modul teks, maupun praktikum).","Dapat berpindah strategi belajar secara fleksibel sesuai tingkat kesulitan topik materi.","Menyukai variasi metode agar proses belajar tetap terasa segar, menantang, dan menyenangkan."],"strengths":["Kemampuan adaptasi yang sangat tinggi terhadap berbagai gaya mengajar guru di sekolah.","Kesiapan menyeluruh menghadapi berbagai format ujian (tulis, lisan, maupun ujian praktik).","Kemandirian belajar yang solid karena mampu memanfaatkan aneka ragam media sumber belajar."],"growthAreas":["Menghindari kebingungan dalam memilih metode yang paling efisien ketika waktu belajar terbatas.","Melatih kepekaan untuk mengenali metode mana yang paling pas untuk mata pelajaran tertentu.","Menjaga konsistensi jadwal belajar agar tidak terlalu sering berganti pola tanpa arah yang jelas."],"recommendations":[{"title":"Strategi Belajar Tiga Langkah Terpadu","description":"1) Lihat diagram visual bab, 2) Jelaskan dengan kata-kata lisan, 3) Kerjakan soal latihan nyata secara aktif.","icon":"Target"},{"title":"Variasi Media Belajar Mingguan","description":"Gunakan kombinasi buku teks berstabilo di hari Senin, video siniar di hari Rabu, dan eksperimen/latihan soal di akhir pekan.","icon":"BookOpen"},{"title":"Catatan Visual-Verbal Interaktif","description":"Buat catatan ringkas yang memadukan gambar skema, kata kunci vokal, dan lembar kerja latihan soal mandiri.","icon":"FileText"},{"title":"Fleksibilitas Menghadapi Ujian Beragam","description":"Sesuaikan cara belajar: gunakan mind map untuk ujian esai, teknik lisan untuk ujian wawancara, dan simulasi untuk ujian praktik.","icon":"Brain"},{"title":"Pemanfaatan Beragam Fitur Teknologi","description":"Manfaatkan aplikasi interaktif seperti Quizizz/Kahoot, video animasi YouTube, dan e-book beranotasi secara bergantian.","icon":"Laptop"},{"title":"Eksplorasi Materi yang Sangat Sulit","description":"Jika suatu topik terasa mentok dengan membaca, beralihlah mendengarkan audio atau langsung mencoba membuat contoh kasusnya.","icon":"HelpCircle"},{"title":"Peran Serbaguna dalam Kerja Tim","description":"Kamu dapat mengambil berbagai peran dalam kelompok: pencatat visual, presenter vokal, maupun koordinator proyek praktik.","icon":"Users"}]}};
+
+    let currentStudent = null;
+    let answers = {};
+    let currentIndex = 0;
+
+    function showView(viewId) {
+      ['home', 'guide', 'identity', 'assessment', 'result', 'teacher'].forEach(v => {
+        const el = document.getElementById('view-' + v);
+        if (el) el.classList.toggle('hidden', v !== viewId);
+      });
+      window.scrollTo(0,0);
+      if (viewId === 'teacher') renderTeacherTable();
+    }
+
+    function startAssessment(e) {
+      e.preventDefault();
+      const name = document.getElementById('input-name').value.trim();
+      const className = document.getElementById('input-class').value.trim().toUpperCase();
+      const level = document.getElementById('input-level').value;
+
+      if (!name || !className) return;
+
+      currentStudent = {
+        name,
+        className,
+        level,
+        date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })
+      };
+
+      answers = {};
+      currentIndex = 0;
+      showView('assessment');
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = QUESTIONS[currentIndex];
+      document.getElementById('student-badge-top').innerText = currentStudent.name + ' (' + currentStudent.className + ')';
+      document.getElementById('question-counter-text').innerText = 'Pertanyaan ' + (currentIndex + 1) + ' dari ' + QUESTIONS.length;
+      document.getElementById('question-number-badge').innerText = 'Butir #' + q.id;
+      document.getElementById('question-text').innerText = '“' + q.text + '”';
+
+      const progress = ((currentIndex + 1) / QUESTIONS.length) * 100;
+      document.getElementById('progress-bar-fill').style.width = progress + '%';
+
+      document.getElementById('btn-prev-q').disabled = currentIndex === 0;
+      document.getElementById('btn-next-q').innerText = currentIndex === QUESTIONS.length - 1 ? 'SELESAI' : 'LANJUT';
+
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      RESPONSE_OPTIONS.forEach(opt => {
+        const isSelected = answers[q.id] === opt.value;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'w-full p-3.5 rounded-xl border text-left flex items-center justify-between text-xs sm:text-sm transition-all ' +
+          (isSelected ? 'bg-indigo-50 border-indigo-600 ring-2 ring-indigo-600/20 font-bold text-indigo-950' : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700');
+        btn.innerHTML = '<span class="flex items-center gap-3"><span class="w-6 h-6 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-xs">' + opt.value + '</span><span>' + opt.label + '</span></span>';
+        btn.onclick = () => selectOption(opt.value);
+        container.appendChild(btn);
+      });
+    }
+
+    function selectOption(val) {
+      answers[QUESTIONS[currentIndex].id] = val;
+      if (currentIndex < QUESTIONS.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        finishAssessment();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+      }
+    }
+
+    function nextQuestion() {
+      if (!answers[QUESTIONS[currentIndex].id]) {
+        alert('Harap pilih salah satu jawaban sebelum lanjut.');
+        return;
+      }
+      if (currentIndex < QUESTIONS.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        finishAssessment();
+      }
+    }
+
+    function finishAssessment() {
+      for (let i = 1; i <= 30; i++) {
+        if (!answers[i]) {
+          alert('Butir #' + i + ' belum dijawab. Harap jawab seluruh butir.');
+          currentIndex = i - 1;
+          renderQuestion();
+          return;
+        }
+      }
+
+      // Calculate score
+      let v = 0, a = 0, k = 0;
+      const vIds = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28];
+      const aIds = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29];
+      const kIds = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30];
+
+      vIds.forEach(id => v += answers[id] || 0);
+      aIds.forEach(id => a += answers[id] || 0);
+      kIds.forEach(id => k += answers[id] || 0);
+
+      const total = v + a + k;
+      const vPct = Math.round((v / total) * 1000) / 10;
+      const aPct = Math.round((a / total) * 1000) / 10;
+      const kPct = Math.round((k / total) * 1000) / 10;
+
+      let cat = 'visual_dominant';
+      let title = 'Kecenderungan Utama Visual';
+
+      const scores = [
+        { d: 'visual', s: v, l: 'Visual' },
+        { d: 'auditori', s: a, l: 'Auditori' },
+        { d: 'kinestetik', s: k, l: 'Kinestetik' }
+      ].sort((x, y) => y.s - x.s);
+
+      if (scores[0].s - scores[2].s <= 2) {
+        cat = 'balanced';
+        title = 'Kecenderungan Seimbang (Multimodal)';
+      } else if (scores[0].s - scores[1].s <= 2) {
+        const pair = [scores[0].d, scores[1].d];
+        if (pair.includes('visual') && pair.includes('kinestetik')) {
+          cat = 'visual_kinestetik';
+          title = 'Kombinasi Visual - Kinestetik';
+        } else if (pair.includes('visual') && pair.includes('auditori')) {
+          cat = 'visual_auditori';
+          title = 'Kombinasi Visual - Auditori';
+        } else {
+          cat = 'auditori_kinestetik';
+          title = 'Kombinasi Auditori - Kinestetik';
+        }
+      } else {
+        if (scores[0].d === 'visual') { cat = 'visual_dominant'; title = 'Kecenderungan Utama Visual'; }
+        else if (scores[0].d === 'auditori') { cat = 'auditori_dominant'; title = 'Kecenderungan Utama Auditori'; }
+        else { cat = 'kinestetik_dominant'; title = 'Kecenderungan Utama Kinestetik'; }
+      }
+
+      const record = {
+        id: 'RES-' + Date.now(),
+        student: currentStudent,
+        scores: { visual: v, auditori: a, kinestetik: k, total },
+        percentages: { visual: vPct, auditori: aPct, kinestetik: kPct },
+        profileCategory: cat,
+        profileTitle: title,
+        timestamp: Date.now()
+      };
+
+      // Save to localStorage
+      try {
+        const list = JSON.parse(localStorage.getItem('nafas_bk_learning_styles_v1') || '[]');
+        list.unshift(record);
+        localStorage.setItem('nafas_bk_learning_styles_v1', JSON.stringify(list));
+      } catch(e) {}
+
+      renderResult(record);
+      showView('result');
+    }
+
+    function renderResult(res) {
+      const interp = INTERPRETATIONS[res.profileCategory] || INTERPRETATIONS['balanced'];
+      const c = document.getElementById('result-container');
+      
+      let recsHtml = '';
+      interp.recommendations.forEach((r, idx) => {
+        recsHtml += '<div class="p-3.5 rounded-xl border border-slate-200 bg-white space-y-1">' +
+          '<div class="font-bold text-xs text-indigo-900">#' + (idx+1) + ' ' + r.title + '</div>' +
+          '<div class="text-xs text-slate-600">' + r.description + '</div>' +
+        '</div>';
+      });
+
+      c.innerHTML = '<div class="space-y-6">' +
+        '<div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">' +
+          '<div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-3">' +
+            '<div>' +
+              '<div class="text-xs font-bold text-slate-500 uppercase">Hasil Asesmen Peserta Didik</div>' +
+              '<h2 class="text-xl sm:text-2xl font-black text-slate-900">' + res.student.name + ' (' + res.student.className + ' • ' + res.student.level + ')</h2>' +
+            '</div>' +
+            '<button onclick="window.print()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl shadow-xs no-print">CETAK LAPORAN</button>' +
+          '</div>' +
+          
+          '<div class="text-center space-y-1">' +
+            '<div class="text-xs font-bold text-slate-500 uppercase">Kecenderungan Utama:</div>' +
+            '<div class="inline-block px-6 py-2 rounded-2xl bg-indigo-700 text-white font-black text-xl sm:text-2xl shadow-md">' + res.profileTitle + '</div>' +
+          '</div>' +
+
+          '<div class="grid grid-cols-3 gap-3">' +
+            '<div class="p-3 rounded-xl bg-blue-50 border border-blue-200 text-center">' +
+              '<div class="text-xs font-bold text-blue-900">VISUAL</div>' +
+              '<div class="text-2xl font-black text-blue-700">' + res.scores.visual + '</div>' +
+              '<div class="text-[11px] text-slate-500">' + res.percentages.visual + '%</div>' +
+            '</div>' +
+            '<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-center">' +
+              '<div class="text-xs font-bold text-emerald-900">AUDITORI</div>' +
+              '<div class="text-2xl font-black text-emerald-700">' + res.scores.auditori + '</div>' +
+              '<div class="text-[11px] text-slate-500">' + res.percentages.auditori + '%</div>' +
+            '</div>' +
+            '<div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-center">' +
+              '<div class="text-xs font-bold text-amber-900">KINESTETIK</div>' +
+              '<div class="text-2xl font-black text-amber-700">' + res.scores.kinestetik + '</div>' +
+              '<div class="text-[11px] text-slate-500">' + res.percentages.kinestetik + '%</div>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="space-y-2">' +
+            '<div class="font-bold text-xs uppercase tracking-wider text-slate-800">Interpretasi:</div>' +
+            '<p class="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-xl">' + interp.summary + '</p>' +
+          '</div>' +
+
+          '<div class="space-y-3">' +
+            '<div class="font-bold text-xs uppercase tracking-wider text-slate-800">Rekomendasi Strategi Belajar:</div>' +
+            '<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + recsHtml + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    function renderTeacherTable() {
+      const list = JSON.parse(localStorage.getItem('nafas_bk_learning_styles_v1') || '[]');
+      const tbody = document.getElementById('teacher-table-body');
+      const statsRow = document.getElementById('teacher-stats-row');
+
+      let vCount = 0, aCount = 0, kCount = 0;
+      list.forEach(item => {
+        if (item.profileCategory === 'visual_dominant') vCount++;
+        else if (item.profileCategory === 'auditori_dominant') aCount++;
+        else if (item.profileCategory === 'kinestetik_dominant') kCount++;
+      });
+
+      statsRow.innerHTML = 
+        '<div class="p-3 rounded-xl bg-slate-100"><div class="font-bold text-base">' + list.length + '</div><div class="text-[10px] text-slate-500">Total Siswa</div></div>' +
+        '<div class="p-3 rounded-xl bg-blue-50 text-blue-900"><div class="font-bold text-base">' + vCount + '</div><div class="text-[10px]">Dominan Visual</div></div>' +
+        '<div class="p-3 rounded-xl bg-emerald-50 text-emerald-900"><div class="font-bold text-base">' + aCount + '</div><div class="text-[10px]">Dominan Auditori</div></div>' +
+        '<div class="p-3 rounded-xl bg-amber-50 text-amber-900"><div class="font-bold text-base">' + kCount + '</div><div class="text-[10px]">Dominan Kinestetik</div></div>';
+
+      if (list.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" class="py-8 text-center text-slate-400">Belum ada data siswa. Lakukan asesmen terlebih dahulu.</td></tr>';
+        return;
+      }
+
+      let rows = '';
+      list.forEach((item, idx) => {
+        rows += '<tr class="hover:bg-slate-50 border-b border-slate-100">' +
+          '<td class="py-2.5 px-3 font-bold text-slate-500">' + (idx + 1) + '</td>' +
+          '<td class="py-2.5 px-3 font-bold text-slate-900">' + item.student.name + '</td>' +
+          '<td class="py-2.5 px-3">' + item.student.className + '</td>' +
+          '<td class="py-2.5 px-3">' + item.student.level + '</td>' +
+          '<td class="py-2.5 px-3 text-center font-bold text-blue-700">' + item.scores.visual + '</td>' +
+          '<td class="py-2.5 px-3 text-center font-bold text-emerald-700">' + item.scores.auditori + '</td>' +
+          '<td class="py-2.5 px-3 text-center font-bold text-amber-700">' + item.scores.kinestetik + '</td>' +
+          '<td class="py-2.5 px-3 font-semibold text-slate-800">' + item.profileTitle + '</td>' +
+        '</tr>';
+      });
+      tbody.innerHTML = rows;
+    }
+
+    function exportCSV() {
+      const list = JSON.parse(localStorage.getItem('nafas_bk_learning_styles_v1') || '[]');
+      if (list.length === 0) { alert('Tidak ada data untuk diexport.'); return; }
+      
+      const headers = ['No', 'Nama Siswa', 'Kelas', 'Jenjang', 'Visual', 'Auditori', 'Kinestetik', 'Kecenderungan Utama'];
+      const rows = list.map((item, idx) => [
+        idx + 1,
+        '"' + item.student.name.replace(/"/g, '""') + '"',
+        '"' + item.student.className + '"',
+        item.student.level,
+        item.scores.visual,
+        item.scores.auditori,
+        item.scores.kinestetik,
+        '"' + item.profileTitle + '"'
+      ]);
+      const csv = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Rekap_Gaya_Belajar_NaFaS_BK.csv';
+      a.click();
+    }
+
+    function clearAllData() {
+      if (confirm('Hapus semua data rekap di browser ini?')) {
+        localStorage.removeItem('nafas_bk_learning_styles_v1');
+        renderTeacherTable();
+      }
+    }
+  </script>
+</body>
+</html>
