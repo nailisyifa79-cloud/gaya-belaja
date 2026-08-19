@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NaFaS BK • Asesmen Kesiapan Belajar SMP/SMA/SMK</title>
+<style>
+:root{--blue:#4f8fbf;--sky:#e2f2fb;--peach:#f5a47d;--cream:#fff2e9;--ink:#263746;--muted:#6b7780;--bg:#f8fcff;--border:#dcebf2}
+*{box-sizing:border-box}body{margin:0;font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 10%,#e2f2fb 0,transparent 28%),radial-gradient(circle at 92% 12%,#fff0e6 0,transparent 28%),var(--bg)}
+header{background:#ffffffdf;backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:16px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}.brand{display:flex;gap:13px;align-items:center}.logo{width:52px;height:52px;border-radius:17px;background:linear-gradient(135deg,var(--blue),var(--peach));display:grid;place-items:center;color:#fff;font-size:27px;font-weight:900}.brand h1{margin:0;font-size:21px}.brand p{margin:3px 0 0;color:var(--muted);font-size:13px}nav{font-weight:900;color:var(--blue)}
+.container{max-width:1080px;margin:30px auto;padding:0 20px}.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#39749e,#5ea0c9 55%,#f5a47d);color:#fff;border-radius:34px;padding:62px 28px;text-align:center;box-shadow:0 18px 45px #4f8fbf33}.hero:before{content:"☀";position:absolute;left:8%;top:18px;font-size:38px;color:#fff0a8}.hero:after{content:"➜";position:absolute;right:7%;bottom:0;font-size:90px;color:#ffffff2b}.badge{display:inline-block;background:#ffffff20;border:1px solid #ffffff45;border-radius:999px;padding:9px 16px;font-weight:900}.hero h2{font-size:clamp(34px,6vw,59px);line-height:1.05;margin:26px 0 10px}.tag{font-size:21px;color:#fff0c9;font-weight:900}.hero p{max-width:780px;margin:23px auto;line-height:1.7;color:#f5fbff}
+.card{background:#ffffffed;border:1px solid var(--border);border-radius:26px;padding:29px;box-shadow:0 10px 30px #4f8fbf12}.hidden{display:none!important}.btn{border:0;border-radius:16px;padding:14px 22px;font-size:16px;font-weight:900;cursor:pointer;transition:.2s;box-shadow:0 6px 14px #00000012}.btn:hover{transform:translateY(-2px)}.btn-main{background:#ffd166;color:#263746}.btn-blue{background:var(--blue);color:#fff}.btn-peach{background:var(--peach);color:#fff}.btn-light{background:#edf6fa;color:var(--ink)}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}label{display:block;font-weight:900;margin-bottom:7px}input{width:100%;padding:14px;border:1px solid var(--border);border-radius:13px;font-size:16px}
+.qnum{text-align:center;color:var(--blue);font-weight:900}.progress{height:9px;background:#e7f0f5;border-radius:99px;overflow:hidden;margin:15px 0 25px}.progress>div{height:100%;background:linear-gradient(90deg,var(--blue),var(--peach));transition:.25s}.question{text-align:center;font-size:27px;line-height:1.45;font-weight:800;max-width:820px;margin:22px auto 30px}.scale{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.choice{border:2px solid var(--border);background:#fff;border-radius:18px;padding:18px 8px;font-weight:900;cursor:pointer;box-shadow:0 5px 14px #4f8fbf0b}.choice:hover,.choice.selected{border-color:var(--peach);background:#fff1e9}.choice small{display:block;color:var(--muted);font-weight:500;margin-top:6px}.navbuttons{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
+.result-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.result-head h2{margin:4px 0}.status{border-radius:22px;padding:26px;margin:25px 0;color:#fff;background:linear-gradient(135deg,#39749e,#5ea0c9,#f5a47d)}.status-title{font-size:29px;font-weight:900}.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.score{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px}.num{font-size:30px;font-weight:900;margin:5px 0}.bar{height:8px;background:#e7f0f5;border-radius:99px;overflow:hidden}.bar div{height:100%;background:linear-gradient(90deg,var(--blue),var(--peach))}.info{background:#f2f9fd;border-left:5px solid var(--blue);padding:18px;border-radius:12px;line-height:1.7}.wa-box{background:#fff6ed;border:1px solid #ffd9c5;border-radius:18px;padding:20px;margin-top:25px}.wa-box h3{color:#a65734;margin-top:0}.note{color:var(--muted);font-size:13px;line-height:1.65}footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
+@media(max-width:720px){nav{display:none}.form-grid,.scores{grid-template-columns:1fr}.scale{grid-template-columns:1fr 1fr}.hero{padding:43px 20px}.question{font-size:23px}}
+@media print{header,.no-print,footer{display:none!important}body{background:#fff}.card{border:0;box-shadow:none}.container{max-width:none}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">N</div><div><h1>NaFaS <span style="color:#4f8fbf">BK</span></h1><p>Asesmen Digital Bimbingan dan Konseling</p></div></div><nav>SMP • SMA • SMK • Kesiapan Belajar</nav></header>
+<main class="container">
+<section id="home" class="hero"><span class="badge">NaFaS BK • Siap Belajar, Siap Berkembang</span><h2>ASESMEN KESIAPAN BELAJAR</h2><div class="tag">“Siap Belajar, Siap Berkembang”</div><p>Asesmen reflektif untuk membantu peserta didik melihat kesiapan diri dalam menetapkan tujuan, fokus, mengatur waktu, menggunakan strategi, menjaga motivasi, dan belajar secara mandiri.</p><div class="actions"><button class="btn btn-main" onclick="showData()">MULAI ASESMEN</button><button class="btn btn-light" onclick="showGuide()">PETUNJUK</button></div><p style="font-weight:800">36 Butir • ±10–15 Menit • SMP • SMA • SMK</p></section>
+
+<section id="guide" class="card hidden" style="margin-top:24px"><h2>Petunjuk Pengisian</h2><ol style="line-height:1.9"><li>Isi identitas dengan benar.</li><li>Baca setiap pernyataan dan pilih jawaban yang paling menggambarkan keadaanmu saat ini.</li><li>Tidak ada jawaban benar atau salah. Jawablah jujur.</li><li>Gunakan hasil sebagai bahan refleksi dan diskusi bersama Guru BK.</li></ol><p class="note"><b>Catatan:</b> Hasil asesmen merupakan gambaran reflektif tentang kesiapan belajar saat ini, bukan diagnosis dan bukan label tetap.</p><button class="btn btn-blue" onclick="hideAll();document.getElementById('home').classList.remove('hidden')">KEMBALI</button></section>
+
+<section id="data" class="card hidden" style="margin-top:24px"><h2>Data Peserta Didik</h2><div class="form-grid"><div><label>Nama</label><input id="nama" placeholder="Masukkan nama"></div><div><label>Kelas</label><input id="kelas" placeholder="Contoh: VIII A / XI TJKT 1"></div><div><label>Sekolah</label><input id="sekolah" placeholder="Nama sekolah"></div></div><div class="actions" style="justify-content:flex-start"><button class="btn btn-blue" onclick="startQuiz()">LANJUTKAN</button></div></section>
+
+<section id="quiz" class="card hidden" style="margin-top:24px"><div class="qnum" id="qnum"></div><div class="progress"><div id="progress"></div></div><div class="question" id="questionText"></div><div class="scale" id="choices"></div><div class="navbuttons"><button class="btn btn-light" onclick="prevQuestion()">← Sebelumnya</button><button class="btn btn-blue" id="nextBtn" onclick="nextQuestion()">Berikutnya →</button></div></section>
+
+<section id="result" class="card hidden" style="margin-top:24px">
+<div class="result-head"><div><div style="color:#6b7780;font-weight:900">HASIL ASESMEN KESIAPAN BELAJAR</div><h2 id="resultName"></h2><div id="resultClass" class="note"></div></div><div class="actions no-print" style="margin-top:0"><button class="btn btn-peach" onclick="window.print()">CETAK LAPORAN</button><button class="btn btn-blue" onclick="openWA()">KIRIM HASIL KE GURU BK</button></div></div>
+<div id="statusBox" class="status"><div style="font-weight:800;opacity:.9">TINGKAT KESIAPAN BELAJAR</div><div id="statusTitle" class="status-title"></div><div id="statusDesc" style="margin-top:8px;line-height:1.6"></div></div>
+<h3>PROFIL 6 ASPEK</h3><div class="scores" id="scoreGrid"></div>
+<h3>KEKUATAN & AREA YANG PERLU DIKEMBANGKAN</h3><div class="info" id="strength"></div>
+<h3>REKOMENDASI LANGKAH BERIKUTNYA</h3><div class="info" id="recommendation"></div>
+<div class="wa-box no-print"><h3>📱 KIRIM HASIL KE GURU BK</h3><p>Masukkan nomor WhatsApp Guru BK. Bisa <b>08...</b>, <b>62...</b>, atau <b>+62...</b>.</p><input id="waNumber" inputmode="tel" placeholder="Contoh: 081234567890"><button class="btn btn-blue" style="width:100%;margin-top:12px" onclick="openWA()">KIRIM HASIL KE WHATSAPP GURU BK</button><p class="note">WhatsApp akan dibuka dengan hasil lengkap yang sudah disiapkan. Setelah WhatsApp terbuka, tekan <b>Kirim</b>.</p></div>
+<p class="note" style="margin-top:24px"><b>Catatan:</b> Gunakan hasil ini sebagai bahan refleksi. Kesiapan belajar dapat berkembang melalui latihan, dukungan, kebiasaan yang konsisten, dan pengalaman belajar.</p>
+</section>
+</main><footer>NaFaS BK • Asesmen Digital Bimbingan dan Konseling</footer>
+
+<script>
+const questions=[
+["T","Saya mengetahui apa yang ingin saya capai dalam belajar."],
+["F","Saya dapat memusatkan perhatian ketika guru menjelaskan."],
+["W","Saya menyediakan waktu khusus untuk belajar."],
+["S","Saya menyiapkan kebutuhan belajar sebelum mulai belajar."],
+["M","Saya memiliki alasan yang membuat saya ingin belajar dengan sungguh-sungguh."],
+["K","Saya bertanggung jawab terhadap hasil belajar saya."],
+["T","Saya memiliki target belajar yang ingin saya capai."],
+["F","Saya berusaha kembali fokus ketika perhatian saya teralihkan."],
+["W","Saya dapat menentukan mana tugas yang harus dikerjakan terlebih dahulu."],
+["S","Saya memiliki cara untuk memahami materi yang sulit."],
+["M","Saya tetap berusaha belajar meskipun materi terasa sulit."],
+["K","Saya mencari sumber belajar tambahan ketika belum memahami materi."],
+["T","Saya memahami alasan mengapa saya perlu mempelajari suatu materi."],
+["F","Saya dapat mengurangi hal-hal yang mengganggu konsentrasi saat belajar."],
+["W","Saya berusaha menyelesaikan tugas sesuai batas waktu."],
+["S","Saya mengulang atau meninjau kembali materi yang sudah dipelajari."],
+["M","Saya mampu memulai belajar tanpa harus selalu disuruh."],
+["K","Saya berani bertanya ketika mengalami kesulitan belajar."],
+["T","Saya dapat menentukan tujuan belajar untuk satu periode tertentu."],
+["F","Saya dapat tetap memperhatikan meskipun materi yang dipelajari kurang menarik bagi saya."],
+["W","Saya membuat urutan kegiatan agar waktu belajar saya lebih teratur."],
+["S","Saya mencoba cara belajar yang berbeda ketika cara sebelumnya belum membantu."],
+["M","Saya berusaha menyelesaikan tugas meskipun membutuhkan waktu."],
+["K","Saya mengevaluasi hasil belajar saya untuk mengetahui apa yang perlu diperbaiki."],
+["T","Saya mengetahui langkah yang perlu saya lakukan untuk mencapai target belajar."],
+["F","Saya berusaha menyelesaikan satu kegiatan belajar sebelum beralih ke hal lain."],
+["W","Saya menghindari menunda tugas ketika sudah mengetahui batas waktunya."],
+["S","Saya membuat catatan atau rangkuman yang membantu saya memahami materi."],
+["M","Saya tetap mencoba setelah hasil belajar saya belum sesuai harapan."],
+["K","Saya mencari bantuan ketika saya sudah berusaha tetapi masih belum memahami materi."],
+["T","Saya dapat menetapkan target belajar yang realistis sesuai kemampuan dan waktu saya."],
+["F","Saya dapat kembali berkonsentrasi setelah terdistraksi oleh gawai atau hal lain."],
+["W","Saya membagi waktu antara belajar, istirahat, dan kegiatan lainnya."],
+["S","Saya memeriksa kembali pemahaman saya setelah mempelajari suatu materi."],
+["M","Saya merasa memiliki tanggung jawab untuk terus meningkatkan hasil belajar saya."],
+["K","Saya mengambil inisiatif untuk memperbaiki cara belajar saya ketika mengalami kesulitan."]
+];
+const info={
+T:{name:"Kesiapan Tujuan",desc:"Memahami alasan belajar, menetapkan target, dan mengetahui langkah untuk mencapainya.",rec:"Tuliskan 1–3 target belajar yang spesifik dan realistis. Tentukan langkah kecil serta waktu untuk mencapainya."},
+F:{name:"Fokus & Konsentrasi",desc:"Mampu memusatkan perhatian dan mengelola gangguan selama proses belajar.",rec:"Kurangi distraksi, gunakan waktu belajar singkat namun fokus, dan letakkan gawai jauh dari jangkauan saat diperlukan."},
+W:{name:"Pengelolaan Waktu",desc:"Mampu mengatur waktu, menentukan prioritas, dan menyelesaikan tugas sesuai batas waktu.",rec:"Buat daftar prioritas harian, tentukan waktu belajar, dan pecah tugas besar menjadi beberapa langkah kecil."},
+S:{name:"Strategi Belajar",desc:"Menggunakan persiapan, pemahaman, pencatatan, pengulangan, dan strategi alternatif saat belajar.",rec:"Coba rangkuman, latihan soal, menjelaskan kembali materi, atau strategi lain yang sesuai dengan kebutuhanmu."},
+M:{name:"Motivasi & Ketekunan",desc:"Memiliki dorongan untuk belajar, mampu memulai, bertahan menghadapi kesulitan, dan mencoba kembali.",rec:"Hubungkan tugas dengan tujuanmu, mulai dari langkah kecil, dan catat kemajuan agar usaha terasa terlihat."},
+K:{name:"Kemandirian Belajar",desc:"Bertanggung jawab, mengevaluasi diri, mencari bantuan, dan mengambil inisiatif dalam proses belajar.",rec:"Biasakan mengecek pemahaman sendiri dan mencari bantuan ketika diperlukan tanpa menunggu selalu diarahkan orang lain."}
+};
+let current=0,answers=[],scores={},student={};
+function hideAll(){["home","guide","data","quiz","result"].forEach(x=>document.getElementById(x).classList.add("hidden"))}
+function showData(){hideAll();document.getElementById("data").classList.remove("hidden");scrollTo(0,0)}
+function showGuide(){hideAll();document.getElementById("guide").classList.remove("hidden");scrollTo(0,0)}
+function startQuiz(){let n=document.getElementById("nama").value.trim(),k=document.getElementById("kelas").value.trim();if(!n||!k){alert("Silakan isi Nama dan Kelas terlebih dahulu.");return}student={nama:n,kelas:k,sekolah:document.getElementById("sekolah").value.trim()};answers=new Array(36).fill(null);current=0;hideAll();document.getElementById("quiz").classList.remove("hidden");renderQuestion();scrollTo(0,0)}
+function renderQuestion(){let[a,t]=questions[current];document.getElementById("qnum").textContent=`Pertanyaan ${current+1} dari 36 • ${info[a].name}`;document.getElementById("questionText").textContent=t;document.getElementById("progress").style.width=((current+1)/36*100)+"%";let opts=[["1","Sangat Tidak Sesuai"],["2","Tidak Sesuai"],["3","Sesuai"],["4","Sangat Sesuai"]],box=document.getElementById("choices");box.innerHTML="";opts.forEach(([v,t])=>{let b=document.createElement("button");b.className="choice"+(answers[current]===+v?" selected":"");b.innerHTML=`${v}<small>${t}</small>`;b.onclick=()=>{answers[current]=+v;renderQuestion()};box.appendChild(b)});document.getElementById("nextBtn").textContent=current===35?"LIHAT HASIL":"Berikutnya →"}
+function nextQuestion(){if(answers[current]===null){alert("Pilih salah satu jawaban terlebih dahulu.");return}if(current<35){current++;renderQuestion();scrollTo(0,0)}else showResult()}
+function prevQuestion(){if(current>0){current--;renderQuestion();scrollTo(0,0)}}
+function showResult(){
+scores={T:0,F:0,W:0,S:0,M:0,K:0};questions.forEach(([a],i)=>scores[a]+=answers[i]);
+let ranked=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]),total=Object.values(scores).reduce((a,b)=>a+b,0),avg=total/144;
+let title=avg>=.75?"SIAP BERKEMBANG":avg>=.55?"PERLU PENGUATAN":"PERLU PENDAMPINGAN";
+let desc=avg>=.75?"Kamu menunjukkan kesiapan belajar yang cukup kuat. Pertahankan kebiasaan yang sudah baik dan terus kembangkan area yang masih dapat diperbaiki.":avg>=.55?"Kamu sudah memiliki sebagian fondasi kesiapan belajar, tetapi beberapa kebiasaan masih perlu diperkuat melalui latihan yang konsisten.":"Hasil menunjukkan beberapa aspek kesiapan belajar perlu mendapatkan perhatian dan pendampingan lebih terarah. Kesiapan belajar dapat berkembang.";
+document.getElementById("resultName").textContent=student.nama;document.getElementById("resultClass").textContent=`${student.kelas}${student.sekolah?" • "+student.sekolah:""}`;document.getElementById("statusTitle").textContent=title;document.getElementById("statusDesc").textContent=desc;
+let grid=document.getElementById("scoreGrid");grid.innerHTML="";ranked.forEach(a=>{let pct=scores[a]/24*100;grid.innerHTML+=`<div class="score"><b style="color:#4f8fbf">${info[a].name}</b><div class="num">${scores[a]}<span style="font-size:14px;color:#6b7780"> / 24</span></div><div class="bar"><div style="width:${pct}%"></div></div><div class="note" style="margin-top:7px">${info[a].desc}</div></div>`});
+let strengths=ranked.slice(0,2),needs=ranked.slice(-2).reverse();
+document.getElementById("strength").innerHTML=`<b>Kekuatan utama:</b><br>${strengths.map(x=>`• ${info[x].name} (${scores[x]}/24) — ${info[x].desc}`).join("<br>")}<br><br><b>Area yang perlu dikembangkan:</b><br>${needs.map(x=>`• ${info[x].name} (${scores[x]}/24)`).join("<br>")}`;
+document.getElementById("recommendation").innerHTML=needs.map((x,i)=>`<b>${i+1}. ${info[x].name}</b> — ${info[x].rec}`).join("<br><br>");
+hideAll();document.getElementById("result").classList.remove("hidden");scrollTo(0,0)
+}
+function normalizeWA(raw){let n=String(raw||"").replace(/\D/g,"");if(n.startsWith("62"))return n;if(n.startsWith("0"))return"62"+n.slice(1);return"62"+n}
+function makeMessage(){let ranked=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]),total=Object.values(scores).reduce((a,b)=>a+b,0),avg=total/144,title=avg>=.75?"SIAP BERKEMBANG":avg>=.55?"PERLU PENGUATAN":"PERLU PENDAMPINGAN";let m=`HASIL ASESMEN KESIAPAN BELAJAR\nNaFaS BK\n\nNama: ${student.nama}\nKelas: ${student.kelas}\n`;if(student.sekolah)m+=`Sekolah: ${student.sekolah}\n`;m+=`\nTINGKAT KESIAPAN BELAJAR\n${title}\n\nPROFIL 6 ASPEK\n`;ranked.forEach(x=>m+=`${info[x].name}: ${scores[x]}/24\n`);m+=`\nKEKUATAN UTAMA\n${ranked.slice(0,2).map(x=>`• ${info[x].name}: ${info[x].desc}`).join("\n")}\n\nAREA YANG PERLU DIKEMBANGKAN\n${ranked.slice(-2).reverse().map(x=>`• ${info[x].name}: ${info[x].rec}`).join("\n")}\n\nCATATAN\nHasil ini merupakan gambaran reflektif tentang kesiapan belajar saat asesmen dilakukan, bukan diagnosis dan bukan label tetap.`;return m}
+function openWA(){let input=document.getElementById("waNumber"),raw=input.value.trim();if(!raw){alert("Masukkan nomor WhatsApp Guru BK terlebih dahulu.");input.focus();return}let phone=normalizeWA(raw);if(phone.length<10){alert("Nomor WhatsApp belum lengkap.");return}window.location.assign("https://wa.me/"+phone+"?text="+encodeURIComponent(makeMessage()))}
+</script>
+</body>
+</html>
