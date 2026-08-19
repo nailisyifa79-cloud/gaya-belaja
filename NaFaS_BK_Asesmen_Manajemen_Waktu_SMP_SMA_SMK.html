@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NaFaS BK • Asesmen Manajemen Waktu SMP/SMA/SMK</title>
+<style>
+:root{--navy:#253b5c;--blue:#4e6f9f;--gold:#f3bd3f;--cream:#fff8e7;--ink:#263448;--muted:#6e7887;--bg:#fbfcff;--border:#e2e7ef}
+*{box-sizing:border-box}body{margin:0;font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 10%,#eaf0fa 0,transparent 28%),radial-gradient(circle at 92% 12%,#fff2c7 0,transparent 28%),var(--bg)}
+header{background:#ffffffdf;backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:16px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}.brand{display:flex;gap:13px;align-items:center}.logo{width:52px;height:52px;border-radius:17px;background:linear-gradient(135deg,var(--navy),var(--gold));display:grid;place-items:center;color:#fff;font-size:27px;font-weight:900}.brand h1{margin:0;font-size:21px}.brand p{margin:3px 0 0;color:var(--muted);font-size:13px}nav{font-weight:900;color:var(--navy)}
+.container{max-width:1080px;margin:30px auto;padding:0 20px}.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#1f3657,#4d6d9c 58%,#dcae35);color:#fff;border-radius:34px;padding:62px 28px;text-align:center;box-shadow:0 18px 45px #253b5c33}.hero:before{content:"◷";position:absolute;left:8%;top:18px;font-size:42px;color:#ffeaa4}.hero:after{content:"→";position:absolute;right:7%;bottom:0;font-size:100px;color:#ffffff2b}.badge{display:inline-block;background:#ffffff20;border:1px solid #ffffff45;border-radius:999px;padding:9px 16px;font-weight:900}.hero h2{font-size:clamp(34px,6vw,59px);line-height:1.05;margin:26px 0 10px}.tag{font-size:21px;color:#fff0ae;font-weight:900}.hero p{max-width:780px;margin:23px auto;line-height:1.7;color:#f5f8ff}
+.card{background:#ffffffed;border:1px solid var(--border);border-radius:26px;padding:29px;box-shadow:0 10px 30px #253b5c12}.hidden{display:none!important}.btn{border:0;border-radius:16px;padding:14px 22px;font-size:16px;font-weight:900;cursor:pointer;transition:.2s;box-shadow:0 6px 14px #00000012}.btn:hover{transform:translateY(-2px)}.btn-main{background:var(--gold);color:#263448}.btn-blue{background:var(--navy);color:#fff}.btn-gold{background:#dcae35;color:#fff}.btn-light{background:#edf1f7;color:var(--ink)}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}label{display:block;font-weight:900;margin-bottom:7px}input{width:100%;padding:14px;border:1px solid var(--border);border-radius:13px;font-size:16px}
+.qnum{text-align:center;color:var(--blue);font-weight:900}.progress{height:9px;background:#e8edf4;border-radius:99px;overflow:hidden;margin:15px 0 25px}.progress>div{height:100%;background:linear-gradient(90deg,var(--navy),var(--gold));transition:.25s}.question{text-align:center;font-size:27px;line-height:1.45;font-weight:800;max-width:820px;margin:22px auto 30px}.scale{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.choice{border:2px solid var(--border);background:#fff;border-radius:18px;padding:18px 8px;font-weight:900;cursor:pointer;box-shadow:0 5px 14px #253b5c0b}.choice:hover,.choice.selected{border-color:var(--gold);background:var(--cream)}.choice small{display:block;color:var(--muted);font-weight:500;margin-top:6px}.navbuttons{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
+.result-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.result-head h2{margin:4px 0}.status{border-radius:22px;padding:26px;margin:25px 0;color:#fff;background:linear-gradient(135deg,#1f3657,#4d6d9c,#dcae35)}.status-title{font-size:29px;font-weight:900}.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.score{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px}.num{font-size:30px;font-weight:900;margin:5px 0}.bar{height:8px;background:#e8edf4;border-radius:99px;overflow:hidden}.bar div{height:100%;background:linear-gradient(90deg,var(--navy),var(--gold))}.info{background:#f5f8fc;border-left:5px solid var(--blue);padding:18px;border-radius:12px;line-height:1.7}.wa-box{background:#fff8e7;border:1px solid #f5df9b;border-radius:18px;padding:20px;margin-top:25px}.wa-box h3{color:#755b13;margin-top:0}.note{color:var(--muted);font-size:13px;line-height:1.65}footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
+@media(max-width:720px){nav{display:none}.form-grid,.scores{grid-template-columns:1fr}.scale{grid-template-columns:1fr 1fr}.hero{padding:43px 20px}.question{font-size:23px}}
+@media print{header,.no-print,footer{display:none!important}body{background:#fff}.card{border:0;box-shadow:none}.container{max-width:none}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">N</div><div><h1>NaFaS <span style="color:#253b5c">BK</span></h1><p>Asesmen Digital Bimbingan dan Konseling</p></div></div><nav>SMP • SMA • SMK • Manajemen Waktu</nav></header>
+<main class="container">
+<section id="home" class="hero"><span class="badge">NaFaS BK • Produktif Tanpa Kehilangan Keseimbangan</span><h2>ASESMEN MANAJEMEN WAKTU</h2><div class="tag">“Atur Waktumu, Kendalikan Harimu”</div><p>Asesmen reflektif untuk membantu peserta didik mengenali cara merencanakan kegiatan, menentukan prioritas, menjaga ketepatan waktu, mengendalikan distraksi, konsisten menjalankan rencana, dan menjaga keseimbangan aktivitas.</p><div class="actions"><button class="btn btn-main" onclick="showData()">MULAI ASESMEN</button><button class="btn btn-light" onclick="showGuide()">PETUNJUK</button></div><p style="font-weight:800">36 Butir • ±10–15 Menit • SMP • SMA • SMK</p></section>
+
+<section id="guide" class="card hidden" style="margin-top:24px"><h2>Petunjuk Pengisian</h2><ol style="line-height:1.9"><li>Isi identitas dengan benar.</li><li>Baca setiap pernyataan dan pilih jawaban yang paling menggambarkan kebiasaanmu saat ini.</li><li>Tidak ada jawaban benar atau salah. Jawablah jujur.</li><li>Gunakan hasil sebagai bahan refleksi dan diskusi bersama Guru BK.</li></ol><p class="note"><b>Catatan:</b> Hasil asesmen merupakan gambaran reflektif tentang kebiasaan manajemen waktu saat ini, bukan diagnosis dan bukan label tetap.</p><button class="btn btn-blue" onclick="hideAll();document.getElementById('home').classList.remove('hidden')">KEMBALI</button></section>
+
+<section id="data" class="card hidden" style="margin-top:24px"><h2>Data Peserta Didik</h2><div class="form-grid"><div><label>Nama</label><input id="nama" placeholder="Masukkan nama"></div><div><label>Kelas</label><input id="kelas" placeholder="Contoh: VIII A / XI TJKT 1"></div><div><label>Sekolah</label><input id="sekolah" placeholder="Nama sekolah"></div></div><div class="actions" style="justify-content:flex-start"><button class="btn btn-blue" onclick="startQuiz()">LANJUTKAN</button></div></section>
+
+<section id="quiz" class="card hidden" style="margin-top:24px"><div class="qnum" id="qnum"></div><div class="progress"><div id="progress"></div></div><div class="question" id="questionText"></div><div class="scale" id="choices"></div><div class="navbuttons"><button class="btn btn-light" onclick="prevQuestion()">← Sebelumnya</button><button class="btn btn-blue" id="nextBtn" onclick="nextQuestion()">Berikutnya →</button></div></section>
+
+<section id="result" class="card hidden" style="margin-top:24px">
+<div class="result-head"><div><div style="color:#6e7887;font-weight:900">HASIL ASESMEN MANAJEMEN WAKTU</div><h2 id="resultName"></h2><div id="resultClass" class="note"></div></div><div class="actions no-print" style="margin-top:0"><button class="btn btn-gold" onclick="window.print()">CETAK LAPORAN</button><button class="btn btn-blue" onclick="openWA()">KIRIM HASIL KE GURU BK</button></div></div>
+<div id="statusBox" class="status"><div style="font-weight:800;opacity:.9">PROFIL MANAJEMEN WAKTU</div><div id="statusTitle" class="status-title"></div><div id="statusDesc" style="margin-top:8px;line-height:1.6"></div></div>
+<h3>PROFIL 6 ASPEK</h3><div class="scores" id="scoreGrid"></div>
+<h3>KEKUATAN & AREA YANG PERLU DIKEMBANGKAN</h3><div class="info" id="strength"></div>
+<h3>REKOMENDASI LANGKAH BERIKUTNYA</h3><div class="info" id="recommendation"></div>
+<div class="wa-box no-print"><h3>📱 KIRIM HASIL KE GURU BK</h3><p>Masukkan nomor WhatsApp Guru BK. Bisa <b>08...</b>, <b>62...</b>, atau <b>+62...</b>.</p><input id="waNumber" inputmode="tel" placeholder="Contoh: 081234567890"><button class="btn btn-blue" style="width:100%;margin-top:12px" onclick="openWA()">KIRIM HASIL KE WHATSAPP GURU BK</button><p class="note">WhatsApp akan dibuka dengan hasil lengkap yang sudah disiapkan. Setelah WhatsApp terbuka, tekan <b>Kirim</b>.</p></div>
+<p class="note" style="margin-top:24px"><b>Catatan:</b> Gunakan hasil ini sebagai bahan refleksi. Kemampuan mengelola waktu dapat berkembang melalui latihan, evaluasi, dan kebiasaan yang konsisten.</p>
+</section>
+</main><footer>NaFaS BK • Asesmen Digital Bimbingan dan Konseling</footer>
+<script>
+const questions=[
+["P","Saya membuat rencana kegiatan yang perlu saya lakukan dalam satu hari."],
+["R","Saya dapat menentukan tugas mana yang harus dikerjakan terlebih dahulu."],
+["W","Saya berusaha menyelesaikan tugas sesuai batas waktu."],
+["D","Saya dapat membatasi penggunaan gawai ketika sedang mengerjakan tugas."],
+["K","Saya berusaha mengikuti jadwal yang sudah saya buat."],
+["B","Saya dapat membagi waktu antara belajar dan istirahat."],
+["P","Saya mengetahui kegiatan apa saja yang perlu saya selesaikan dalam satu hari."],
+["R","Saya mengerjakan tugas penting sebelum melakukan kegiatan yang kurang penting."],
+["W","Saya memperkirakan waktu yang diperlukan agar tidak terlambat pada suatu kegiatan."],
+["D","Saya tidak terlalu lama bermain media sosial ketika masih memiliki pekerjaan yang harus diselesaikan."],
+["K","Saya tetap berusaha menjalankan rencana meskipun sedang kurang bersemangat."],
+["B","Saya tetap menyediakan waktu untuk keluarga dan kegiatan sosial."],
+["P","Saya memperkirakan waktu yang dibutuhkan untuk menyelesaikan tugas."],
+["R","Saya dapat membedakan kegiatan yang mendesak dengan kegiatan yang dapat ditunda."],
+["W","Saya memperhitungkan waktu perjalanan agar tidak terlambat."],
+["D","Saya dapat kembali fokus setelah terdistraksi oleh gawai atau hal lain."],
+["K","Saya tidak hanya membuat rencana, tetapi berusaha melaksanakannya."],
+["B","Saya menghindari memenuhi jadwal dengan terlalu banyak kegiatan sekaligus."],
+["P","Saya menuliskan atau mengingat jadwal penting agar tidak terlupakan."],
+["R","Saya mempertimbangkan dampak suatu pilihan sebelum menghabiskan waktu untuk pilihan tersebut."],
+["W","Saya memberi waktu cadangan ketika suatu kegiatan membutuhkan perjalanan atau persiapan."],
+["D","Saya mematikan atau menjauhkan notifikasi ketika perlu berkonsentrasi."],
+["K","Saya berusaha kembali pada jadwal ketika sebelumnya ada kegiatan yang tertunda."],
+["B","Saya dapat menyesuaikan waktu belajar dengan kebutuhan istirahat saya."],
+["P","Saya membagi tugas besar menjadi beberapa kegiatan yang lebih kecil agar lebih mudah dikerjakan."],
+["R","Saya mampu menolak atau menunda kegiatan yang kurang penting ketika ada tugas yang lebih mendesak."],
+["W","Saya berusaha datang tepat waktu ke sekolah atau kegiatan yang saya ikuti."],
+["D","Saya menyelesaikan satu tugas terlebih dahulu sebelum berpindah ke kegiatan lain ketika memungkinkan."],
+["K","Saya mengevaluasi apakah jadwal yang saya buat benar-benar dapat saya jalankan."],
+["B","Saya memiliki waktu untuk melakukan kegiatan yang saya sukai tanpa mengabaikan kewajiban."],
+["P","Saya membuat daftar prioritas atau catatan kegiatan ketika memiliki banyak tugas."],
+["R","Saya dapat memilih kegiatan yang paling sesuai dengan tujuan saya ketika waktu terbatas."],
+["W","Saya berusaha menyelesaikan pekerjaan sebelum batas waktu, bukan selalu pada saat terakhir."],
+["D","Saya mampu membatasi kegiatan yang sering membuat waktu saya terbuang."],
+["K","Saya berusaha mempertahankan kebiasaan mengatur waktu dari hari ke hari."],
+["B","Saya dapat menyeimbangkan waktu untuk belajar, tidur, keluarga, teman, dan kegiatan lainnya."]
+];
+const info={
+P:{name:"Perencanaan",desc:"Mampu merencanakan kegiatan, memperkirakan waktu, dan memecah tugas menjadi langkah yang lebih terkelola.",rec:"Gunakan daftar kegiatan harian dan tentukan waktu realistis untuk setiap tugas. Pecah tugas besar menjadi langkah kecil."},
+R:{name:"Prioritas",desc:"Mampu menentukan kegiatan penting dan mendesak serta memilih penggunaan waktu sesuai tujuan.",rec:"Gunakan daftar prioritas. Kerjakan hal yang paling penting terlebih dahulu dan kurangi kegiatan yang tidak mendukung tujuan."},
+W:{name:"Ketepatan Waktu",desc:"Mampu memperhitungkan durasi, batas waktu, perjalanan, dan persiapan agar kegiatan selesai tepat waktu.",rec:"Gunakan pengingat dan beri waktu cadangan. Hindari menunggu sampai batas waktu untuk mulai mengerjakan."},
+D:{name:"Pengendalian Distraksi",desc:"Mampu mengelola gawai, notifikasi, media sosial, dan gangguan lain yang dapat mengambil waktu.",rec:"Tentukan waktu bebas gawai, matikan notifikasi saat fokus, dan selesaikan satu tugas sebelum berpindah bila memungkinkan."},
+K:{name:"Konsistensi",desc:"Mampu menjalankan rencana, kembali ke jadwal setelah terganggu, dan mengevaluasi kebiasaan.",rec:"Mulai dari satu kebiasaan kecil yang bisa dilakukan setiap hari. Evaluasi apa yang berhasil dan perbaiki rencana bila diperlukan."},
+B:{name:"Keseimbangan",desc:"Mampu membagi waktu antara kewajiban, belajar, istirahat, keluarga, sosial, dan kegiatan yang disukai.",rec:"Susun jadwal yang realistis dengan waktu tidur dan istirahat yang cukup. Hindari memenuhi jadwal dengan terlalu banyak kegiatan."}
+};
+let current=0,answers=[],scores={},student={};
+function hideAll(){["home","guide","data","quiz","result"].forEach(x=>document.getElementById(x).classList.add("hidden"))}
+function showData(){hideAll();document.getElementById("data").classList.remove("hidden");scrollTo(0,0)}
+function showGuide(){hideAll();document.getElementById("guide").classList.remove("hidden");scrollTo(0,0)}
+function startQuiz(){let n=document.getElementById("nama").value.trim(),k=document.getElementById("kelas").value.trim();if(!n||!k){alert("Silakan isi Nama dan Kelas terlebih dahulu.");return}student={nama:n,kelas:k,sekolah:document.getElementById("sekolah").value.trim()};answers=new Array(36).fill(null);current=0;hideAll();document.getElementById("quiz").classList.remove("hidden");renderQuestion();scrollTo(0,0)}
+function renderQuestion(){let[a,t]=questions[current];document.getElementById("qnum").textContent=`Pertanyaan ${current+1} dari 36 • ${info[a].name}`;document.getElementById("questionText").textContent=t;document.getElementById("progress").style.width=((current+1)/36*100)+"%";let opts=[["1","Sangat Tidak Sesuai"],["2","Tidak Sesuai"],["3","Sesuai"],["4","Sangat Sesuai"]],box=document.getElementById("choices");box.innerHTML="";opts.forEach(([v,t])=>{let b=document.createElement("button");b.className="choice"+(answers[current]===+v?" selected":"");b.innerHTML=`${v}<small>${t}</small>`;b.onclick=()=>{answers[current]=+v;renderQuestion()};box.appendChild(b)});document.getElementById("nextBtn").textContent=current===35?"LIHAT HASIL":"Berikutnya →"}
+function nextQuestion(){if(answers[current]===null){alert("Pilih salah satu jawaban terlebih dahulu.");return}if(current<35){current++;renderQuestion();scrollTo(0,0)}else showResult()}
+function prevQuestion(){if(current>0){current--;renderQuestion();scrollTo(0,0)}}
+function showResult(){
+scores={P:0,R:0,W:0,D:0,K:0,B:0};questions.forEach(([a],i)=>scores[a]+=answers[i]);
+let ranked=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]),total=Object.values(scores).reduce((a,b)=>a+b,0),avg=total/144;
+let title=avg>=.75?"TERKELOLA DENGAN BAIK":avg>=.55?"PERLU PENGUATAN":"PERLU PENDAMPINGAN";
+let desc=avg>=.75?"Kamu menunjukkan kemampuan mengelola waktu yang cukup baik. Pertahankan kebiasaan yang sudah efektif dan terus evaluasi agar tetap seimbang.":avg>=.55?"Kamu sudah memiliki beberapa kebiasaan pengelolaan waktu yang baik, tetapi masih ada area yang perlu diperkuat agar rencana lebih konsisten terlaksana.":"Hasil menunjukkan beberapa aspek manajemen waktu perlu mendapatkan perhatian dan latihan lebih terarah. Kemampuan mengelola waktu dapat berkembang.";
+document.getElementById("resultName").textContent=student.nama;document.getElementById("resultClass").textContent=`${student.kelas}${student.sekolah?" • "+student.sekolah:""}`;document.getElementById("statusTitle").textContent=title;document.getElementById("statusDesc").textContent=desc;
+let grid=document.getElementById("scoreGrid");grid.innerHTML="";ranked.forEach(a=>{let pct=scores[a]/24*100;grid.innerHTML+=`<div class="score"><b style="color:#4e6f9f">${info[a].name}</b><div class="num">${scores[a]}<span style="font-size:14px;color:#6e7887"> / 24</span></div><div class="bar"><div style="width:${pct}%"></div></div><div class="note" style="margin-top:7px">${info[a].desc}</div></div>`});
+let strengths=ranked.slice(0,2),needs=ranked.slice(-2).reverse();
+document.getElementById("strength").innerHTML=`<b>Kekuatan utama:</b><br>${strengths.map(x=>`• ${info[x].name} (${scores[x]}/24) — ${info[x].desc}`).join("<br>")}<br><br><b>Area yang perlu dikembangkan:</b><br>${needs.map(x=>`• ${info[x].name} (${scores[x]}/24)`).join("<br>")}`;
+document.getElementById("recommendation").innerHTML=needs.map((x,i)=>`<b>${i+1}. ${info[x].name}</b> — ${info[x].rec}`).join("<br><br>");
+hideAll();document.getElementById("result").classList.remove("hidden");scrollTo(0,0)
+}
+function normalizeWA(raw){let n=String(raw||"").replace(/\D/g,"");if(n.startsWith("62"))return n;if(n.startsWith("0"))return"62"+n.slice(1);return"62"+n}
+function makeMessage(){let ranked=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]),total=Object.values(scores).reduce((a,b)=>a+b,0),avg=total/144,title=avg>=.75?"TERKELOLA DENGAN BAIK":avg>=.55?"PERLU PENGUATAN":"PERLU PENDAMPINGAN";let m=`HASIL ASESMEN MANAJEMEN WAKTU\nNaFaS BK\n\nNama: ${student.nama}\nKelas: ${student.kelas}\n`;if(student.sekolah)m+=`Sekolah: ${student.sekolah}\n`;m+=`\nPROFIL MANAJEMEN WAKTU\n${title}\n\nPROFIL 6 ASPEK\n`;ranked.forEach(x=>m+=`${info[x].name}: ${scores[x]}/24\n`);m+=`\nKEKUATAN UTAMA\n${ranked.slice(0,2).map(x=>`• ${info[x].name}: ${info[x].desc}`).join("\n")}\n\nAREA YANG PERLU DIKEMBANGKAN\n${ranked.slice(-2).reverse().map(x=>`• ${info[x].name}: ${info[x].rec}`).join("\n")}\n\nCATATAN\nHasil ini merupakan gambaran reflektif tentang kebiasaan manajemen waktu saat asesmen dilakukan, bukan diagnosis dan bukan label tetap.`;return m}
+function openWA(){let input=document.getElementById("waNumber"),raw=input.value.trim();if(!raw){alert("Masukkan nomor WhatsApp Guru BK terlebih dahulu.");input.focus();return}let phone=normalizeWA(raw);if(phone.length<10){alert("Nomor WhatsApp belum lengkap.");return}window.location.assign("https://wa.me/"+phone+"?text="+encodeURIComponent(makeMessage()))}
+</script>
+</body>
+</html>
