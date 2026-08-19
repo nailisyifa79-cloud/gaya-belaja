@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NaFaS BK • Asesmen Bakat & Minat SMA/SMK</title>
+<style>
+:root{
+--ink:#263238;--teal:#087f8c;--teal2:#055f69;--mint:#dff7f3;--orange:#f28c5b;
+--yellow:#ffd166;--bg:#f7fbfa;--card:#fff;--muted:#68777b;--border:#dcebea;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;background:radial-gradient(circle at 8% 10%,#dff7f3 0,transparent 28%),radial-gradient(circle at 92% 12%,#fff0dc 0,transparent 28%),var(--bg);color:var(--ink)}
+header{background:#ffffffdd;backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:16px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+.brand{display:flex;gap:13px;align-items:center}.logo{width:52px;height:52px;border-radius:17px;background:linear-gradient(135deg,var(--teal),var(--orange));display:grid;place-items:center;color:#fff;font-size:27px;font-weight:900}
+.brand h1{margin:0;font-size:21px}.brand p{margin:3px 0 0;color:var(--muted);font-size:13px}
+nav{font-weight:800;color:var(--teal2)}
+.container{max-width:1080px;margin:30px auto;padding:0 20px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#056f79,#0d98a0 55%,#f28c5b);color:#fff;border-radius:34px;padding:62px 28px;text-align:center;box-shadow:0 18px 45px #087f8c33}
+.hero:before{content:"✦";position:absolute;left:8%;top:20px;font-size:34px;color:#ffd166}.hero:after{content:"◌";position:absolute;right:7%;bottom:0;font-size:90px;color:#ffffff2b}
+.badge{display:inline-block;background:#ffffff20;border:1px solid #ffffff40;border-radius:999px;padding:9px 16px;font-weight:800}
+.hero h2{font-size:clamp(34px,6vw,60px);line-height:1.05;margin:26px 0 10px}.tag{font-size:21px;color:#ffe4a3;font-weight:900}.hero p{max-width:780px;margin:23px auto;line-height:1.7;color:#efffff}
+.card{background:#ffffffeb;border:1px solid var(--border);border-radius:26px;padding:29px;box-shadow:0 10px 30px #087f8c10}
+.hidden{display:none!important}
+.btn{border:0;border-radius:16px;padding:14px 22px;font-size:16px;font-weight:900;cursor:pointer;transition:.2s;box-shadow:0 6px 14px #00000012}.btn:hover{transform:translateY(-2px)}
+.btn-main{background:var(--yellow);color:#263238}.btn-teal{background:var(--teal);color:#fff}.btn-orange{background:var(--orange);color:#fff}.btn-light{background:#eef5f5;color:var(--ink)}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}label{display:block;font-weight:900;margin-bottom:7px}input{width:100%;padding:14px;border:1px solid var(--border);border-radius:13px;font-size:16px}
+.qnum{color:var(--teal);font-weight:900;text-align:center}.progress{height:9px;background:#e7f0ef;border-radius:99px;overflow:hidden;margin:15px 0 25px}.progress>div{height:100%;background:linear-gradient(90deg,var(--teal),var(--orange));transition:.25s}
+.question{text-align:center;font-size:27px;line-height:1.45;font-weight:800;max-width:820px;margin:22px auto 30px}.scale{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.choice{border:2px solid var(--border);background:#fff;border-radius:18px;padding:18px 8px;font-weight:900;cursor:pointer;box-shadow:0 5px 14px #087f8c0b}.choice:hover,.choice.selected{border-color:var(--orange);background:#fff1e9}
+.choice small{display:block;color:var(--muted);font-weight:500;margin-top:6px}.navbuttons{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
+.result-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.result-head h2{margin:4px 0}.top-profile{background:linear-gradient(135deg,var(--teal2),var(--teal),var(--orange));color:#fff;border-radius:24px;padding:27px;margin:25px 0}.code{font-size:27px;font-weight:900}.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.score{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px}.letter{font-weight:900;color:var(--teal)}.num{font-size:31px;font-weight:900;margin:5px 0}.bar{height:8px;background:#eaf2f1;border-radius:99px;overflow:hidden}.bar div{height:100%;background:linear-gradient(90deg,var(--teal),var(--orange))}
+.info{background:#f4fbfa;border-left:5px solid var(--teal);padding:18px;border-radius:12px;line-height:1.7}.wa-box{background:#fff7ef;border:1px solid #ffd8c3;border-radius:18px;padding:20px;margin-top:25px}.wa-box h3{color:#a34d22;margin-top:0}.note{color:var(--muted);font-size:13px;line-height:1.65}
+footer{text-align:center;color:var(--muted);padding:30px;font-size:13px}
+@media(max-width:720px){nav{display:none}.form-grid,.scores{grid-template-columns:1fr}.scale{grid-template-columns:1fr 1fr}.hero{padding:43px 20px}.question{font-size:23px}}
+@media print{header,.no-print,footer{display:none!important}body{background:#fff}.card{border:0;box-shadow:none}.container{max-width:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="brand"><div class="logo">N</div><div><h1>NaFaS <span style="color:#087f8c">BK</span></h1><p>Asesmen Digital Bimbingan dan Konseling</p></div></div>
+<nav>SMA • SMK • Eksplorasi Karier</nav>
+</header>
+<main class="container">
+<section id="home" class="hero">
+<span class="badge">NaFaS BK • Asesmen Eksplorasi</span>
+<h2>ASESMEN BAKAT &amp; MINAT SMA/SMK</h2>
+<div class="tag">“Kenali Potensimu, Tentukan Arahmu”</div>
+<p>Membantu peserta didik mengenali kecenderungan minat pada enam area RIASEC sebagai bahan refleksi untuk mengeksplorasi pendidikan, kegiatan, dan arah karier.</p>
+<div class="actions"><button class="btn btn-main" onclick="showData()">MULAI ASESMEN</button><button class="btn btn-light" onclick="showGuide()">PETUNJUK</button></div>
+<p style="font-weight:800">36 Butir • ±12–15 Menit</p>
+</section>
+
+<section id="guide" class="card hidden" style="margin-top:24px">
+<h2>Petunjuk</h2>
+<ol style="line-height:1.9">
+<li>Isi identitas dengan benar.</li><li>Baca setiap pernyataan dan pilih jawaban yang paling sesuai dengan dirimu saat ini.</li>
+<li>Tidak ada jawaban benar atau salah. Jawablah jujur.</li><li>Hasil digunakan sebagai bahan eksplorasi dan diskusi dalam layanan BK.</li>
+</ol>
+<p class="note"><b>Catatan:</b> Hasil bukan diagnosis psikologis dan bukan penentu tunggal jurusan, program keahlian, pendidikan lanjutan, atau pekerjaan.</p>
+<button class="btn btn-teal" onclick="hideAll();document.getElementById('home').classList.remove('hidden')">KEMBALI</button>
+</section>
+
+<section id="data" class="card hidden" style="margin-top:24px">
+<h2>Data Peserta Didik</h2>
+<div class="form-grid">
+<div><label>Nama</label><input id="nama" placeholder="Masukkan nama"></div>
+<div><label>Kelas</label><input id="kelas" placeholder="Contoh: XI TJKT 1"></div>
+<div><label>Sekolah</label><input id="sekolah" placeholder="Nama sekolah"></div>
+</div>
+<div class="actions" style="justify-content:flex-start"><button class="btn btn-teal" onclick="startQuiz()">LANJUTKAN</button></div>
+</section>
+
+<section id="quiz" class="card hidden" style="margin-top:24px">
+<div class="qnum" id="qnum"></div><div class="progress"><div id="progress"></div></div>
+<div class="question" id="questionText"></div><div class="scale" id="choices"></div>
+<div class="navbuttons"><button class="btn btn-light" onclick="prevQuestion()">← Sebelumnya</button><button class="btn btn-teal" id="nextBtn" onclick="nextQuestion()">Berikutnya →</button></div>
+</section>
+
+<section id="result" class="card hidden" style="margin-top:24px">
+<div class="result-head">
+<div><div style="color:#68777b;font-weight:900">HASIL ASESMEN BAKAT &amp; MINAT SMA/SMK</div><h2 id="resultName"></h2><div id="resultClass" class="note"></div></div>
+<div class="actions no-print" style="margin-top:0"><button class="btn btn-orange" onclick="window.print()">CETAK LAPORAN</button><button class="btn btn-teal" onclick="openWA()">KIRIM HASIL KE GURU BK</button></div>
+</div>
+<div class="top-profile"><div style="font-weight:800;opacity:.85">KODE MINAT UTAMA</div><div class="code" id="topCode"></div><div id="topTitle" style="font-size:19px;font-weight:900;margin-top:7px"></div></div>
+<h3>PROFIL 6 MINAT</h3><div class="scores" id="scoreGrid"></div>
+<h3>INTERPRETASI</h3><div class="info" id="interpretation"></div>
+<h3>EKSPLORASI PENDIDIKAN &amp; KARIER</h3><div class="info" id="recommendation"></div>
+<div class="wa-box no-print"><h3>📱 KIRIM HASIL KE GURU BK</h3><p>Masukkan nomor WhatsApp Guru BK. Bisa <b>08...</b>, <b>62...</b>, atau <b>+62...</b>.</p><input id="waNumber" inputmode="tel" placeholder="Contoh: 081234567890"><button class="btn btn-teal" style="width:100%;margin-top:12px" onclick="openWA()">KIRIM HASIL KE WHATSAPP GURU BK</button><p class="note">WhatsApp akan dibuka dengan hasil lengkap yang sudah disiapkan. Setelah WhatsApp terbuka, tekan <b>Kirim</b>.</p></div>
+<p class="note" style="margin-top:24px"><b>Catatan:</b> Hasil ini merupakan gambaran kecenderungan minat saat ini. Gunakan bersama refleksi diri, pengalaman belajar, informasi pendidikan/karier, dan diskusi dengan Guru BK.</p>
+</section>
+</main>
+<footer>NaFaS BK • Asesmen Digital Bimbingan dan Konseling</footer>
+
+<script>
+const questions=[
+["R","Saya menikmati kegiatan yang menggunakan alat, teknologi, atau keterampilan praktik."],
+["I","Saya senang mencari penyebab dari suatu masalah."],
+["A","Saya senang membuat desain, video, tulisan, musik, atau karya kreatif."],
+["S","Saya senang membantu orang lain memahami sesuatu."],
+["E","Saya tertarik memimpin kegiatan atau mengoordinasikan sebuah tim."],
+["C","Saya nyaman bekerja dengan data, angka, dokumen, atau informasi yang terstruktur."],
+["R","Saya senang membuat, merakit, memperbaiki, atau menghasilkan sesuatu yang nyata."],
+["I","Saya menikmati kegiatan yang membutuhkan analisis dan penalaran."],
+["A","Saya suka mencari cara yang unik untuk menyampaikan sebuah ide."],
+["S","Saya menikmati berdiskusi dan bertukar pengalaman dengan orang lain."],
+["E","Saya berani menyampaikan ide dan meyakinkan orang lain."],
+["C","Saya senang membuat pekerjaan menjadi rapi dan sistematis."],
+["R","Saya tertarik mempelajari bagaimana suatu perangkat atau sistem bekerja."],
+["I","Saya tertarik melakukan penelitian atau percobaan untuk menemukan jawaban."],
+["A","Saya menikmati kegiatan yang memberi saya kebebasan berkreasi."],
+["S","Saya tertarik pada kegiatan yang memberikan manfaat bagi orang lain."],
+["E","Saya tertarik mencoba membuat atau mengembangkan usaha."],
+["C","Saya teliti ketika menginput atau memeriksa data."],
+["R","Saya lebih menikmati belajar melalui praktik daripada hanya membaca teori."],
+["I","Saya senang mempelajari sesuatu secara mendalam ketika hal tersebut membuat saya penasaran."],
+["A","Saya tertarik pada bidang seni, desain, media, atau komunikasi kreatif."],
+["S","Saya nyaman menjadi tempat orang lain bercerita atau meminta bantuan."],
+["E","Saya senang mengambil inisiatif ketika melihat sebuah peluang."],
+["C","Saya nyaman mengikuti prosedur atau langkah kerja yang jelas."],
+["R","Saya tertarik pada kegiatan yang membutuhkan keterampilan teknis."],
+["I","Saya menikmati memecahkan masalah yang belum pernah saya temui."],
+["A","Saya senang mengubah ide menjadi karya yang dapat dilihat atau dinikmati orang lain."],
+["S","Saya senang bekerja dalam tim dan menjaga hubungan yang baik."],
+["E","Saya menikmati kegiatan yang melibatkan negosiasi, presentasi, atau pengambilan keputusan."],
+["C","Saya senang membuat jadwal, daftar pekerjaan, atau sistem pengorganisasian."],
+["R","Saya merasa puas ketika berhasil menyelesaikan pekerjaan yang menghasilkan sesuatu secara nyata."],
+["I","Saya terbiasa mempertimbangkan bukti atau informasi sebelum mengambil kesimpulan."],
+["A","Saya merasa lebih tertarik pada tugas yang memungkinkan saya menggunakan imajinasi."],
+["S","Saya tertarik pada kegiatan yang melibatkan pendampingan, pengajaran, atau pelayanan."],
+["E","Saya tertarik mengubah sebuah ide menjadi kegiatan atau proyek yang nyata."],
+["C","Saya merasa puas ketika dokumen atau pekerjaan tersusun secara lengkap dan teratur."]
+];
+
+const info={
+R:{name:"Realistic",label:"Praktis & Teknis",desc:"Cenderung menikmati kegiatan nyata, praktik, alat, teknologi, sistem, dan menghasilkan sesuatu yang dapat digunakan.",rec:"Eksplorasi proyek praktik, teknologi, teknik, produksi, robotik, olahraga, keterampilan, atau kegiatan yang menghasilkan karya nyata."},
+I:{name:"Investigative",label:"Analitis & Pemecah Masalah",desc:"Cenderung suka mencari tahu, menganalisis informasi, melakukan penyelidikan, dan memecahkan masalah.",rec:"Eksplorasi sains, riset, data, coding, eksperimen, analisis, proyek berbasis masalah, atau kegiatan yang membutuhkan penalaran."},
+A:{name:"Artistic",label:"Kreatif & Ekspresif",desc:"Cenderung menikmati penciptaan ide dan karya melalui desain, seni, media, tulisan, atau cara komunikasi yang kreatif.",rec:"Eksplorasi desain, multimedia, fotografi, video, musik, penulisan, seni, konten digital, atau proyek kreatif."},
+S:{name:"Social",label:"Kolaboratif & Membantu",desc:"Cenderung menikmati kegiatan yang melibatkan komunikasi, kerja sama, pendampingan, pengajaran, dan pelayanan kepada orang lain.",rec:"Eksplorasi organisasi, tutor sebaya, pelayanan, pendidikan, kegiatan sosial, kepanitiaan, komunikasi, atau kerja tim."},
+E:{name:"Enterprising",label:"Inisiatif & Kepemimpinan",desc:"Cenderung suka mengambil inisiatif, memimpin, mempresentasikan ide, bernegosiasi, dan mengembangkan peluang.",rec:"Eksplorasi kewirausahaan, organisasi, kepemimpinan, presentasi, pemasaran, negosiasi, proyek, atau kegiatan bisnis."},
+C:{name:"Conventional",label:"Terstruktur & Teliti",desc:"Cenderung menyukai data, dokumen, keteraturan, prosedur, sistem, dan pekerjaan yang membutuhkan ketelitian.",rec:"Eksplorasi administrasi, akuntansi, pengolahan data, spreadsheet, perencanaan, dokumentasi, atau pekerjaan yang sistematis."}
+};
+
+let current=0,answers=[],scores={},student={};
+function hideAll(){["home","guide","data","quiz","result"].forEach(x=>document.getElementById(x).classList.add("hidden"))}
+function showData(){hideAll();document.getElementById("data").classList.remove("hidden");scrollTo(0,0)}
+function showGuide(){hideAll();document.getElementById("guide").classList.remove("hidden");scrollTo(0,0)}
+function startQuiz(){
+let n=document.getElementById("nama").value.trim(),k=document.getElementById("kelas").value.trim();
+if(!n||!k){alert("Silakan isi Nama dan Kelas terlebih dahulu.");return}
+student={nama:n,kelas:k,sekolah:document.getElementById("sekolah").value.trim()};
+answers=new Array(36).fill(null);current=0;hideAll();document.getElementById("quiz").classList.remove("hidden");renderQuestion();scrollTo(0,0)
+}
+function renderQuestion(){
+let [a,t]=questions[current];document.getElementById("qnum").textContent=`Pertanyaan ${current+1} dari 36 • ${info[a].name}`;
+document.getElementById("questionText").textContent=t;document.getElementById("progress").style.width=((current+1)/36*100)+"%";
+let opts=[["1","Sangat Tidak Sesuai"],["2","Tidak Sesuai"],["3","Sesuai"],["4","Sangat Sesuai"]],box=document.getElementById("choices");box.innerHTML="";
+opts.forEach(([v,t])=>{let b=document.createElement("button");b.className="choice"+(answers[current]===+v?" selected":"");b.innerHTML=`${v}<small>${t}</small>`;b.onclick=()=>{answers[current]=+v;renderQuestion()};box.appendChild(b)});
+document.getElementById("nextBtn").textContent=current===35?"LIHAT HASIL":"Berikutnya →"
+}
+function nextQuestion(){if(answers[current]===null){alert("Pilih salah satu jawaban terlebih dahulu.");return}if(current<35){current++;renderQuestion();scrollTo(0,0)}else showResult()}
+function prevQuestion(){if(current>0){current--;renderQuestion();scrollTo(0,0)}}
+function showResult(){
+scores={R:0,I:0,A:0,S:0,E:0,C:0};questions.forEach(([a],i)=>scores[a]+=answers[i]);
+let ranked=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]),top=ranked.slice(0,3);
+document.getElementById("resultName").textContent=student.nama;document.getElementById("resultClass").textContent=`${student.kelas}${student.sekolah?" • "+student.sekolah:""}`;
+document.getElementById("topCode").textContent=top.join(" – ");document.getElementById("topTitle").textContent=top.map(x=>info[x].label).join(" • ");
+let grid=document.getElementById("scoreGrid");grid.innerHTML="";
+ranked.forEach(a=>{let pct=scores[a]/24*100;grid.innerHTML+=`<div class="score"><div class="letter">${a} • ${info[a].name}</div><div class="num">${scores[a]}<span style="font-size:14px;color:#68777b"> / 24</span></div><div class="bar"><div style="width:${pct}%"></div></div><div class="note" style="margin-top:7px">${info[a].label}</div></div>`});
+document.getElementById("interpretation").innerHTML=`<b>Kecenderungan utama: ${top.map(x=>info[x].name).join(" • ")}.</b><br><br>${top.map(x=>info[x].desc).join(" ")}`;
+document.getElementById("recommendation").innerHTML=top.map((x,i)=>`<b>${i+1}. ${info[x].name}</b> — ${info[x].rec}`).join("<br><br>");
+hideAll();document.getElementById("result").classList.remove("hidden");scrollTo(0,0)
+}
+function normalizeWA(raw){let n=String(raw||"").replace(/\D/g,"");if(n.startsWith("62"))return n;if(n.startsWith("0"))return"62"+n.slice(1);return"62"+n}
+function makeMessage(){
+let ranked=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]),top=ranked.slice(0,3);
+let m=`HASIL ASESMEN BAKAT & MINAT SMA/SMK\nNaFaS BK\n\nNama: ${student.nama}\nKelas: ${student.kelas}\n`;
+if(student.sekolah)m+=`Sekolah: ${student.sekolah}\n`;
+m+=`\nKECENDERUNGAN MINAT UTAMA\n`;top.forEach((x,i)=>m+=`${i+1}. ${info[x].name} — ${scores[x]}/24\n`);
+m+=`\nPROFIL 6 MINAT\n`;ranked.forEach(x=>m+=`${info[x].name}: ${scores[x]}/24 — ${info[x].label}\n`);
+m+=`\nINTERPRETASI\n`;top.forEach(x=>m+=info[x].desc+"\n");
+m+=`\nEKSPLORASI PENDIDIKAN & KARIER\n`;top.forEach(x=>m+=`• ${info[x].name}: ${info[x].rec}\n`);
+m+=`\nCATATAN\nHasil ini merupakan gambaran kecenderungan minat saat ini, bukan diagnosis dan bukan penentu tunggal jurusan, program keahlian, pendidikan lanjutan, atau pekerjaan.`;
+return m
+}
+function openWA(){
+let input=document.getElementById("waNumber"),raw=input.value.trim();if(!raw){alert("Masukkan nomor WhatsApp Guru BK terlebih dahulu.");input.focus();return}
+let phone=normalizeWA(raw);if(phone.length<10){alert("Nomor WhatsApp belum lengkap.");return}
+window.location.assign("https://wa.me/"+phone+"?text="+encodeURIComponent(makeMessage()))
+}
+</script>
+</body>
+</html>
