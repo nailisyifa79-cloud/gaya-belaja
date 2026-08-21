@@ -215,7 +215,7 @@ function createSession(){
       '<strong>Kode:</strong> '+esc(data.session.code)+'<br>'+
       '<strong>PIN Guru:</strong> '+esc(data.session.pin)+'<br><br>'+
       '<strong>Link siswa:</strong><br><input readonly value="'+esc(link)+'" style="margin-top:7px"><br><div style="margin-top:12px;padding:18px;border:2px dashed #20A77A;border-radius:14px;text-align:center"><strong>📱 QR/Link Siswa</strong><br><span class="muted">Link di atas siap dibagikan. QR final kita pasang setelah server aktif.</span></div><br>'+
-      '<button class="light" style="margin-top:8px" onclick="navigator.clipboard.writeText('+JSON.stringify(link)+').then(()=>alert(\\'Link berhasil disalin.\\'))">📋 Salin Link</button>'+
+      '<button class="light" style="margin-top:8px" onclick="navigator.clipboard.writeText('+JSON.stringify(link)+').then(()=>alert(\\''<button class="light" style="margin-top:8px" onclick="navigator.clipboard.writeText('+JSON.stringify(link)+').then(()=>alert(&quot;Link berhasil disalin.&quot;))">📋 Salin Link</button>'+.\\'))">📋 Salin Link</button>'+
       '</div>';
     msg('teacherMsg','Sesi aktif. Bagikan link/QR kepada siswa.','ok');
   });
