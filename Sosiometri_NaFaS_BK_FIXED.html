@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOSIO-DIGITAL NaFaS BK</title>
+<style>
+:root{--navy:#123A6F;--gold:#F4B400;--teal:#20A77A;--purple:#7657D9;--pink:#E97889;--orange:#F2A23A;--bg:#F6F8FC;--ink:#17324D;--muted:#718196;--line:#DDE6EF}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1050px;margin:auto;padding:18px}.hero{background:linear-gradient(135deg,#102E59,#236B8E,#20A77A);color:white;border-radius:24px;padding:28px;box-shadow:0 14px 35px #123a6f22}
+.hero h1{margin:0;font-size:34px}.hero h1 span{color:var(--gold)}.hero p{margin:7px 0 0;opacity:.9}.topbtn{font:inherit;cursor:pointer}.badge{display:inline-block;margin:14px 7px 0 0;padding:10px 14px;border-radius:999px;background:#fff;color:#123A6F;border:2px solid #fff;font-size:12px;font-weight:900;cursor:pointer;box-shadow:0 4px 12px #09244533}.badge:hover{background:#F4B400;color:#17324D;border-color:#F4B400;transform:translateY(-1px)}
+.card{background:white;border:1px solid var(--line);border-radius:19px;padding:20px;margin-top:16px;box-shadow:0 7px 20px #17324d0a}
+h2{margin:0 0 5px}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+label{display:block;font-size:13px;font-weight:800;margin:12px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #cbd8e5;border-radius:12px;font:inherit;background:#fff}textarea{min-height:75px;resize:vertical}
+button{border:0;border-radius:12px;padding:11px 16px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:#17324D}.teal{background:var(--teal);color:#fff}.light{background:#eaf4ff;color:var(--navy)}.dark{background:var(--navy);color:#fff}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.hidden{display:none!important}
+.step{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}.step span{padding:9px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:12px;font-weight:800;cursor:pointer}.step span:hover{background:#eaf4ff;color:var(--navy)}
+.q{border-radius:17px;padding:18px;margin-top:14px}.q.pos{background:#fff8fa;border-left:5px solid var(--pink)}.q.neg{background:#fff9ef;border-left:5px solid var(--orange)}
+.notice{background:#fff8df;border-left:4px solid var(--gold);padding:12px;border-radius:10px;font-size:13px;margin-top:12px}
+.ok{background:#effaf6;border-left:4px solid var(--teal);padding:12px;border-radius:10px;font-size:13px;margin-top:12px}
+.list{display:grid;gap:9px;margin-top:12px}.item{display:flex;justify-content:space-between;padding:11px;border-bottom:1px solid #edf1f5}
+.map{height:440px;position:relative;border:1px solid var(--line);border-radius:18px;background:radial-gradient(circle,#fff,#f3f7fb);overflow:hidden}
+.node{position:absolute;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:white;font-size:10px;font-weight:900;text-align:center;padding:5px;border:3px solid white;box-shadow:0 5px 14px #123a6f22}
+.edge{position:absolute;height:2px;transform-origin:left center;opacity:.45}
+.two{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
+@media(max-width:700px){.grid,.two{grid-template-columns:1fr}.wrap{padding:12px}.hero h1{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<h1>SOSIO-DIGITAL <span>NaFaS BK</span></h1>
+<p>Pemetaan Hubungan Sosial Siswa</p>
+<button class="badge topbtn" onclick="chooseHP();goSession()">📱 Mode HP</button>
+<button class="badge topbtn" onclick="choosePaper();goSession()">📄 Mode Tanpa HP</button>
+<button class="badge topbtn" onclick="openResult()">🔐 Hasil Guru BK</button>
+</section>
+
+<div class="step">
+<span onclick="goTeacher()">1️⃣ Data Kelas</span>
+<span onclick="goSession()">2️⃣ Buat Sesi</span>
+<span onclick="goStudent()">3️⃣ Siswa Mengisi</span>
+<span onclick="goDashboard()">4️⃣ Guru Lihat Hasil</span>
+</div><div class="actions" style="margin-top:0">
+<button class="light" onclick="goTeacher()">🏫 Data Kelas</button>
+<button class="teal" onclick="goSession()">✨ Buat Sesi</button>
+<button class="light" onclick="goStudent()">📱 Siswa Mengisi</button>
+<button class="dark" onclick="goDashboard()">🔐 Lihat Hasil</button>
+</div>
+
+<section id="teacher" class="card">
+<h2>👩‍🏫 Area Guru BK</h2><div class="muted">Buat kelas dan sesi. Daftar siswa disimpan di Google Sheet.</div>
+<div class="grid">
+<div><label>Nama Sekolah</label><input id="school"></div>
+<div><label>Kelas</label><input id="className" placeholder="Contoh: XI TJKT 1"></div>
+<div><label>Tahun Pelajaran</label><input id="year" value="2026/2027"></div>
+<div><label>Nama Guru BK</label><input id="counselor"></div>
+</div>
+<label>Daftar nama siswa</label><textarea id="studentNames" placeholder="Satu nama per baris. Contoh:
+Aisyah Putri
+Bima Aditya
+Citra Kirana"></textarea>
+<div class="actions"><button class="teal" onclick="createClass()">💾 Simpan Kelas</button></div>
+<div class="ok" style="margin-top:14px">🔗 Server SOSIO-DIGITAL terhubung. Guru tidak perlu memasukkan URL server.</div><div id="teacherMsg"></div>
+<div class="card" style="background:#f8fbff">
+<h3 style="margin-top:0">✨ Buat Sesi</h3>
+<div class="grid" style="margin-top:12px">
+  <button class="teal" onclick="chooseHP()">📱 MODE HP<br><small style="font-weight:500">Siswa mengisi dari HP</small></button>
+  <button class="light" onclick="choosePaper()">📄 MODE TANPA HP<br><small style="font-weight:500">Siswa mengisi lembar</small></button>
+</div>
+<div id="modeStatus" class="notice hidden"></div>
+<div class="muted">Setelah kelas tersimpan, buat sesi baru. Sistem menghasilkan kode sesi dan PIN Guru.</div>
+<div class="actions"><button class="primary" onclick="createSession()">Buat Sesi Sosiometri</button></div>
+<div id="sessionBox" class="hidden"></div>
+</div>
+<div class="card" style="background:#fff9ef">
+<h3 style="margin-top:0">🔐 Hasil Guru BK</h3>
+<button class="dark" onclick="openResult()">🔐 Buka Hasil Guru BK</button>
+<div id="resultAccess" class="hidden" style="margin-top:12px">
+<div class="grid"><div><label>Kode Sesi</label><input id="dashCode"></div><div><label>PIN Guru BK</label><input id="dashPin" type="password"></div></div>
+<div class="actions"><button class="dark" onclick="loadDashboard()">Lihat Peta & Laporan</button></div>
+<div id="dashMsg"></div>
+</div>
+</div>
+</section>
+
+<section id="student" class="card hidden">
+<div class="ok"><strong>🔐 Rahasia:</strong> jawaban siswa hanya dikirim ke Guru BK. Hasil tidak ditampilkan di halaman siswa.</div>
+<h2 style="margin-top:16px">Halo, selamat datang! 👋</h2><div class="muted" id="sessionInfo"></div>
+<label>Nama saya</label><select id="respondent"></select>
+<div class="q pos"><h3>❤️ Teman yang Kamu Sukai</h3><div class="muted">Sebutkan 2 nama teman yang kamu sukai dan alasannya.</div>
+<div class="grid"><div><label>Teman 1</label><select class="posName"></select><label>Alasan</label><textarea class="posReason"></textarea></div><div><label>Teman 2</label><select class="posName"></select><label>Alasan</label><textarea class="posReason"></textarea></div></div></div>
+<div class="q neg"><h3>💭 Teman yang Kurang Kamu Sukai</h3><div class="muted">Sebutkan 2 nama teman yang kurang kamu sukai dan alasannya.</div>
+<div class="grid"><div><label>Teman 1</label><select class="negName"></select><label>Alasan</label><textarea class="negReason"></textarea></div><div><label>Teman 2</label><select class="negName"></select><label>Alasan</label><textarea class="negReason"></textarea></div></div></div>
+<div class="actions"><button class="primary" onclick="submitStudent()">Kirim Jawaban ✓</button></div><div id="studentMsg"></div>
+</section>
+
+<section id="dashboard" class="hidden">
+<div class="card"><div class="two"><div><h2>🗺️ Peta Sosial Kelas</h2><div class="muted" id="dashInfo"></div></div><button class="light" onclick="window.print()">📄 Cetak Laporan</button></div></div>
+<div class="grid">
+<div class="card"><h2>👥</h2><div id="dStudents" style="font-size:27px;font-weight:900">0</div><div class="muted">Siswa</div></div>
+<div class="card"><h2>☑️</h2><div id="dResponses" style="font-size:27px;font-weight:900">0</div><div class="muted">Respons</div></div>
+<div class="card"><h2>❤️</h2><div id="dPos" style="font-size:27px;font-weight:900">0</div><div class="muted">Pilihan Positif</div></div>
+<div class="card"><h2>💭</h2><div id="dNeg" style="font-size:27px;font-weight:900">0</div><div class="muted">Pilihan Kurang Disukai</div></div>
+</div>
+<div class="two">
+<div class="card"><div class="map" id="map"></div><div class="muted" style="margin-top:10px">Garis pink = pilihan positif • Garis oranye = pilihan kurang disukai.</div></div>
+<div class="card"><h2>⭐ Ringkasan</h2><h3>Positif</h3><div id="topPos" class="list"></div><h3>🔎 Perlu Ditinjau</h3><div id="topNeg" class="list"></div></div>
+</div>
+<div class="card"><h2>💡 Catatan Guru BK</h2><div class="muted">Pemetaan ini adalah bahan awal untuk memahami dinamika sosial kelas, bukan diagnosis atau label siswa. Alasan pilihan tersedia pada data respons guru.</div></div>
+</section>
+</div>
+
+<script>
+/* MASUKKAN URL WEB APP GOOGLE APPS SCRIPT DI SINI */
+const BACKEND_URL='https://script.google.com/macros/s/AKfycbz8mLln75wkx00_k07MNpDU-RyZIwUJuOPisu0SLpuEVNVwlawhlchiztYEOE0Z5/exec';
+let sessionCode="",students=[],dashboardData=null;
+
+function api(action,params={},cb){
+  const name='cb_'+Date.now()+'_'+Math.floor(Math.random()*10000);
+  const q=new URLSearchParams({action,...params,callback:name});
+  window[name]=function(data){try{cb(data)}finally{delete window[name];script.remove()}};
+  const script=document.createElement('script');script.src=BACKEND_URL+'?'+q.toString();
+  script.onerror=()=>{delete window[name];script.remove();cb({ok:false,error:'Server tidak dapat dihubungi.'})};
+  document.body.appendChild(script);
+}
+function goTeacher(){
+  document.getElementById('teacher').classList.remove('hidden');
+  document.getElementById('student').classList.add('hidden');
+  document.getElementById('dashboard').classList.add('hidden');
+  document.getElementById('teacher').scrollIntoView({behavior:'smooth'});
+}
+function goSession(){
+  document.getElementById('teacher').classList.remove('hidden');
+  document.getElementById('student').classList.add('hidden');
+  document.getElementById('dashboard').classList.add('hidden');
+  const box=document.getElementById('sessionBox');
+  if(box) box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function goStudent(){
+  if(!sessionCode){
+    alert('Buat Sesi Sosiometri terlebih dahulu pada Menu 2.');
+    goSession();
+    return;
+  }
+  if(!students.length){
+    alert('Daftar siswa belum tersedia.');
+    goTeacher();
+    return;
+  }
+  document.getElementById('teacher').classList.add('hidden');
+  document.getElementById('dashboard').classList.add('hidden');
+  document.getElementById('student').classList.remove('hidden');
+  fillStudent();
+  document.getElementById('sessionInfo').textContent='Sesi '+sessionCode+' • pilih nama dan isi dengan jujur.';
+  document.getElementById('student').scrollIntoView({behavior:'smooth'});
+}
+function goDashboard(){
+  document.getElementById('teacher').scrollIntoView({behavior:'smooth'});
+  document.getElementById('dashCode').focus();
+}
+function chooseHP(){
+  const el=document.getElementById('modeStatus');
+  el.classList.remove('hidden');
+  el.textContent='📱 Mode HP dipilih. Setelah sesi dibuat, siswa akan menggunakan link/QR untuk mengisi.';
+  window.selectedMode='hp';
+}
+function choosePaper(){
+  const el=document.getElementById('modeStatus');
+  el.classList.remove('hidden');
+  el.textContent='📄 Mode Tanpa HP dipilih. Siswa mengisi lembar, lalu guru memasukkan jawaban ke sesi.';
+  window.selectedMode='paper';
+}
+function openResult(){
+  const box=document.getElementById('resultAccess');
+  if(!box){alert('Bagian hasil belum siap.');return;}
+  box.classList.remove('hidden');
+  box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function saveBackendUrl(){
+  const u=document.getElementById('backendUrl').value.trim();
+  if(!u.startsWith('http')){alert('Masukkan URL Web App yang valid.');return}
+  localStorage.setItem('NAFAS_BACKEND_URL',u);
+  location.reload();
+}
+function createClass(){
+  if(!BACKEND_URL.startsWith('http')){msg('teacherMsg','Backend belum terhubung. Masukkan URL Apps Script terlebih dahulu.','notice');return}
+  const names=document.getElementById('studentNames').value.split('\n').map(x=>x.trim()).filter(Boolean);
+  const school=document.getElementById('school').value.trim();
+  const className=document.getElementById('className').value.trim();
+  const year=document.getElementById('year').value.trim();
+  const counselor=document.getElementById('counselor').value.trim();
+  if(!className||names.length<2){msg('teacherMsg','Isi nama kelas dan minimal 2 siswa.','notice');return}
+  const studentsPayload=names.map((name,i)=>({id:'S'+String(i+1).padStart(3,'0'),name}));
+  api('createClass',{school,className,year,counselor,students:JSON.stringify(studentsPayload)},data=>{
+    if(!data.ok){msg('teacherMsg',data.error||'Kelas gagal disimpan.','notice');return}
+    students=studentsPayload;
+    window.classId=data.classId;
+    msg('teacherMsg','✅ Kelas tersimpan. Sekarang pilih Mode HP atau Tanpa HP lalu buat sesi.','ok');
+  });
+}
+function createSession(){
+  if(!students.length){alert('Simpan daftar siswa terlebih dahulu.');return}
+  if(!BACKEND_URL.startsWith('http')){msg('teacherMsg','Backend belum terhubung.','notice');return}
+  const mode=window.selectedMode||'hp';
+  api('createSession',{classId:window.classId||'',mode},data=>{
+    if(!data.ok){msg('teacherMsg',data.error||'Sesi gagal dibuat.','notice');return}
+    sessionCode=data.session.code;
+    document.getElementById('dashCode').value=sessionCode;
+    document.getElementById('dashPin').value=data.session.pin;
+    document.getElementById('sessionBox').classList.remove('hidden');
+    const link=location.href.split('#')[0]+'#sesi='+encodeURIComponent(sessionCode);
+    document.getElementById('sessionBox').innerHTML=
+      '<div class="ok"><strong>✅ Sesi berhasil dibuat!</strong><br>'+
+      '<strong>Kode:</strong> '+esc(data.session.code)+'<br>'+
+      '<strong>PIN Guru:</strong> '+esc(data.session.pin)+'<br><br>'+
+      '<strong>Link siswa:</strong><br><input readonly value="'+esc(link)+'" style="margin-top:7px"><br><div style="margin-top:12px;padding:18px;border:2px dashed #20A77A;border-radius:14px;text-align:center"><strong>📱 QR/Link Siswa</strong><br><span class="muted">Link di atas siap dibagikan. QR final kita pasang setelah server aktif.</span></div><br>'+
+      '<button class="light" style="margin-top:8px" onclick="navigator.clipboard.writeText('+JSON.stringify(link)+').then(()=>alert(&quot;Link berhasil disalin.&quot;))">📋 Salin Link</button>'+
+      '</div>';
+    msg('teacherMsg','Sesi aktif. Bagikan link/QR kepada siswa.','ok');
+  });
+}
+function openStudent(){
+  document.getElementById('teacher').classList.add('hidden');document.getElementById('student').classList.remove('hidden');
+}
+function loadStudentSession(code){
+  sessionCode=code;
+  api('students',{code},data=>{
+    if(!data.ok){alert(data.error||'Sesi tidak ditemukan');return}
+    students=data.students;fillStudent();
+    document.getElementById('teacher').classList.add('hidden');document.getElementById('student').classList.remove('hidden');
+    document.getElementById('sessionInfo').textContent='Sesi '+code+' • pilih nama dan isi dengan jujur.';
+  });
+}
+function fillStudent(){
+  const opt='<option value="">Pilih nama</option>'+students.map(s=>'<option value="'+esc(s.id)+'">'+esc(s.name)+'</option>').join('');
+  document.getElementById('respondent').innerHTML=opt;
+  document.querySelectorAll('.posName,.negName').forEach(x=>x.innerHTML=opt);
+}
+function submitStudent(){
+  const respondent=document.getElementById('respondent').value;
+  const pos=[...document.querySelectorAll('.posName')].map(x=>x.value),neg=[...document.querySelectorAll('.negName')].map(x=>x.value);
+  const pr=[...document.querySelectorAll('.posReason')].map(x=>x.value),nr=[...document.querySelectorAll('.negReason')].map(x=>x.value);
+  if(!respondent||pos.some(x=>!x)||neg.some(x=>!x)){msg('studentMsg','Lengkapi semua pilihan.','notice');return}
+  if(pos.includes(respondent)||neg.includes(respondent)||new Set(pos).size<2||new Set(neg).size<2){msg('studentMsg','Periksa kembali pilihanmu. Tidak boleh memilih diri sendiri dan dua nama harus berbeda.','notice');return}
+  api('submit',{code:sessionCode,respondentId:respondent,positive1:pos[0],positive1Reason:pr[0],positive2:pos[1],positive2Reason:pr[1],negative1:neg[0],negative1Reason:nr[0],negative2:neg[1],negative2Reason:nr[1]},data=>{
+    if(!data.ok){msg('studentMsg',data.error||'Jawaban gagal dikirim.','notice');return}
+    msg('studentMsg','✅ Jawaban berhasil dikirim. Terima kasih. Hasil sosiometri tidak ditampilkan di halaman siswa.','ok');
+    document.querySelectorAll('#student select,#student textarea').forEach(x=>x.value='');
+  });
+}
+function loadDashboard(){
+  const code=document.getElementById('dashCode').value.trim(),pin=document.getElementById('dashPin').value.trim();
+  if(!code||!pin){msg('dashMsg','Masukkan kode sesi dan PIN.','notice');return}
+  api('dashboard',{code,pin},data=>{
+    if(!data.ok){msg('dashMsg',data.error||'Tidak bisa membuka dashboard.','notice');return}
+    dashboardData=data;renderDashboard(data);document.getElementById('teacher').classList.add('hidden');document.getElementById('dashboard').classList.remove('hidden');
+  });
+}
+function renderDashboard(d){
+  document.getElementById('dashInfo').textContent=d.session.code+' • '+d.students.length+' siswa';
+  document.getElementById('dStudents').textContent=d.students.length;
+  document.getElementById('dResponses').textContent=d.responses.length;
+  document.getElementById('dPos').textContent=d.responses.length*2;
+  document.getElementById('dNeg').textContent=d.responses.length*2;
+  const p=[...d.students].sort((a,b)=>b.positive-a.positive).filter(x=>x.positive).slice(0,8);
+  const n=[...d.students].sort((a,b)=>b.negative-a.negative).filter(x=>x.negative).slice(0,8);
+  document.getElementById('topPos').innerHTML=p.map(x=>'<div class="item"><span>'+esc(x.name)+'</span><b>'+x.positive+'</b></div>').join('')||'<div class="muted">Belum ada data.</div>';
+  document.getElementById('topNeg').innerHTML=n.map(x=>'<div class="item"><span>'+esc(x.name)+'</span><b>'+x.negative+'</b></div>').join('')||'<div class="muted">Belum ada data.</div>';
+  drawMap(d);
+}
+function drawMap(d){
+  const box=document.getElementById('map');box.innerHTML='';
+  const ns=d.students, w=box.clientWidth||700,h=box.clientHeight||440,cx=w/2,cy=h/2,r=Math.min(w,h)*.35,nodes={};
+  ns.forEach((s,i)=>{const a=2*Math.PI*i/ns.length-Math.PI/2,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;nodes[s.id]={x,y};
+    const el=document.createElement('div');el.className='node';el.textContent=s.name.split(' ').slice(0,2).join(' ');el.style.background=['#123A6F','#20A77A','#7657D9','#E97889','#F2A23A'][i%5];el.style.left=(x-29)+'px';el.style.top=(y-29)+'px';box.appendChild(el);
+  });
+  d.responses.forEach(r=>{r.positive.forEach(t=>edge(box,nodes[r.respondentId],nodes[t],'#E97889'));r.negative.forEach(t=>edge(box,nodes[r.respondentId],nodes[t],'#F2A23A'))});
+  [...box.querySelectorAll('.node')].forEach(n=>box.appendChild(n));
+}
+function edge(box,a,b,c){if(!a||!b)return;const dx=b.x-a.x,dy=b.y-a.y,l=Math.sqrt(dx*dx+dy*dy),ang=Math.atan2(dy,dx)*180/Math.PI,e=document.createElement('div');e.className='edge';e.style.width=l+'px';e.style.left=a.x+'px';e.style.top=a.y+'px';e.style.background=c;e.style.transform='rotate('+ang+'deg)';box.insertBefore(e,box.firstChild)}
+function msg(id,text,cls){const e=document.getElementById(id);e.className=cls;e.textContent=text}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const hash = location.hash.match(/^#sesi=(.+)$/);
+  if(hash){
+    const code = decodeURIComponent(hash[1]);
+    loadStudentSession(code);
+  }
+
+  const b=document.getElementById('backendUrl'); if(b)b.value=BACKEND_URL;
+});
+</script>
+</body>
+</html>
